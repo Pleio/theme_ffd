@@ -13,6 +13,23 @@
 		<version>1.8</version>
 	</requires>
 	
+	<requires>
+		<type>plugin</type>
+		<name>menu_builder</name>
+	</requires>
+	
+	<requires>
+		<type>priority</type>
+		<plugin>menu_builder</plugin>
+		<priority>after</priority>
+	</requires>
+
+	<requires>
+		<type>priority</type>
+		<plugin>questions</plugin>
+		<priority>after</priority>
+	</requires>
+	
 	<category>ColdTrick</category>
 	<category>Pleio</category>
 	<category>theme</category>
