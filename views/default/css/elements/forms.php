@@ -32,7 +32,7 @@ input, textarea {
 	color: #666;
 	font: 120% Arial, Helvetica, sans-serif;
 	padding: 5px;
-	width: 100%;
+	width: 94%;
 }
 
 input[type=text]:focus, textarea:focus {

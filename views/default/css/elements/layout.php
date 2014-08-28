@@ -38,6 +38,7 @@
 .elgg-page-default .elgg-page-body > .elgg-inner {
 	width: 990px;
 	margin: 0 auto;
+	position: relative;
 }
 .elgg-page-default .elgg-page-footer > .elgg-inner {
 	width: 990px;
@@ -89,14 +90,14 @@
 }
 .elgg-sidebar {
 	position: relative;
-	padding: 20px 10px;
+	padding: 100px 0px 20px 10px;
 	float: right;
 	width: 210px;
 	margin: 0 0 0 10px;
 }
 .elgg-sidebar-alt {
 	position: relative;
-	padding: 20px 10px;
+	padding: 100px 10px 20px 0px;
 	float: left;
 	width: 160px;
 	margin: 0 10px 0 0;
@@ -104,12 +105,12 @@
 .elgg-main {
 	position: relative;
 	min-height: 360px;
-	padding: 30px 10px 10px 10px;
+	padding: 100px 0px 10px;
 }
 .elgg-main > .elgg-head {
-	padding-bottom: 3px;
-	border-bottom: 1px solid #CCCCCC;
-	margin-bottom: 10px;
+	margin: 0 0px 20px;
+    padding: 50px 20px 5px;
+	background: #<?php echo COLOR_BLUE_LIGHT; ?>;
 }
 
 /***** PAGE FOOTER ******/

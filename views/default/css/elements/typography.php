@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: 1.8em; }
-h2 { font-size: 1.5em; line-height: 1.1em; padding-bottom:5px}
+h2 { font-size: 1.5em; line-height: 1.5em; padding-bottom:5px}
 h3 { font-size: 1.2em; }
 h4 { font-size: 1.0em; }
 h5 { font-size: 0.9em; }

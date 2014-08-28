@@ -136,7 +136,7 @@
 
 .elgg-module-widget {
 	background-color: #dedede;
-	padding: 2px;
+	padding: 1px;
 	margin: 0 5px 15px;
 	position: relative;
 }
@@ -144,14 +144,16 @@
 	background-color: #ccc;
 }
 .elgg-module-widget > .elgg-head {
-	background-color: #eeeeee;
-	height: 26px;
+	background-color: #fff;
+	min-height: 26px;
 	overflow: hidden;
 }
 .elgg-module-widget > .elgg-head h3 {
 	float: left;
-	padding: 4px 45px 0 20px;
-	color: #666;
+	padding: 20px 45px 0px 10px;
+}
+.elgg-module-widget > .elgg-head h3 a {
+	color: black;
 }
 .elgg-module-widget.elgg-state-draggable .elgg-widget-handle {
 	cursor: move;
@@ -165,16 +167,15 @@ a.elgg-widget-collapsed:hover {
 	text-decoration: none;
 }
 a.elgg-widget-collapse-button:before {
-	content: "\25BC";
+
 }
 a.elgg-widget-collapsed:before {
-	content: "\25BA";
+
 }
 .elgg-module-widget > .elgg-body {
 	background-color: white;
 	width: 100%;
 	overflow: hidden;
-	border-top: 2px solid #dedede;
 }
 .elgg-widget-edit {
 	display: none;

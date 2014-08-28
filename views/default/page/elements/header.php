@@ -19,11 +19,21 @@ if (elgg_is_logged_in()) {
 		"href" => elgg_get_site_url()
 	));
 } else {
-	echo elgg_view("output/url", array(
-		"text" => elgg_view("output/img", array(
-			"src" => THEME_GRAPHICS . "speech_bubble_logged_out.png",
-			"id" => "theme-ffd-header-speech-bubble-logged-out"
-		)),
-		"href" => elgg_get_site_url()
-	));
+	if (elgg_get_site_url() === current_page_url()) {
+		echo elgg_view("output/url", array(
+			"text" => elgg_view("output/img", array(
+					"src" => THEME_GRAPHICS . "speech_bubble_logged_out.png",
+					"id" => "theme-ffd-header-speech-bubble-logged-out"
+			)),
+			"href" => elgg_get_site_url()
+		));
+	} else {
+		echo elgg_view("output/url", array(
+			"text" => elgg_view("output/img", array(
+					"src" => THEME_GRAPHICS . "speech_bubble.png",
+					"id" => "theme-ffd-header-speech-bubble"
+			)),
+			"href" => elgg_get_site_url()
+		));
+	}
 }
