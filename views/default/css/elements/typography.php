@@ -11,9 +11,9 @@
 	Typography
 *************************************** */
 body {
-	font-size: 80%;
-	line-height: 1.4em;
-	font-family: "Lucida Grande", Arial, Tahoma, Verdana, sans-serif;
+	font-size: 13px;
+	line-height: 20px;
+	font-family: Arial, Tahoma, Verdana, sans-serif;
 }
 
 a {
@@ -92,7 +92,7 @@ h6 { font-size: 0.8em; }
 	color: #<?php echo COLOR_BLUE; ?>;
 	text-decoration: none;
 	position: relative;
-	top: 60px;
+	top: 65px;
 	left: 120px;
 }
 

@@ -19,11 +19,19 @@ function theme_ffd_init() {
 	// Replace the default index page
 	elgg_register_plugin_hook_handler('index', 'system', 'ffd_index');
 	
+	elgg_register_plugin_hook_handler("route", "questions", "theme_ffd_route_questions_hook");
+	elgg_register_plugin_hook_handler("register", "menu:filter", "theme_ffd_questions_filter_menu_hook_handler");
+	
 	// pagehandlers
-	elgg_register_page_handler("profile", "ffd_profile_page_handler");
+	elgg_register_page_handler("profile", "theme_ffdffd_profile_page_handler");
+	elgg_register_page_handler("login", "theme_ffdffd_index");
+	
+	//add a widget
+	elgg_register_widget_type("ffd_stats", elgg_echo("ffd_theme:widgets:ffd_stats:title"), elgg_echo("ffd_theme:widgets:ffd_stats:description"), "index");
+	elgg_register_widget_type("recent_questions", elgg_echo("ffd_theme:widgets:recent_questions:title"), elgg_echo("ffd_theme:widgets:recent_questions:description"), "index");
 }
 
-function ffd_index($hook, $type, $return, $params) {
+function theme_ffd_index($hook, $type, $return, $params) {
 	include_once(dirname(__FILE__) . "/pages/index.php");
 
 	// return true to signify that we have handled the front page
@@ -36,7 +44,7 @@ function ffd_index($hook, $type, $return, $params) {
  * @param array $page Array of URL segments passed by the page handling mechanism
  * @return bool
  */
-function ffd_profile_page_handler($page) {
+function theme_ffd_profile_page_handler($page) {
 
 	if (isset($page[0])) {
 		$username = $page[0];
@@ -70,4 +78,40 @@ function ffd_profile_page_handler($page) {
 	$body = elgg_view_layout('one_column', array('content' => $content));
 	echo elgg_view_page($user->name, $body);
 	return true;
+}
+
+function theme_ffd_route_questions_hook($hook_name, $entity_type, $return_value, $params) {
+
+	if (!empty($return_value) && is_array($return_value)) {
+		$page = elgg_extract("segments", $return_value);
+			
+		switch ($page[0]) {
+			case "most_viewed":
+				include(dirname(__FILE__) . "/pages/questions/most_viewed.php");
+				return false;
+				break;
+		}
+	}
+}
+
+
+function theme_ffd_questions_filter_menu_hook_handler($hook, $type, $return_value, $params) {
+	if (elgg_in_context("questions")) {
+		$selected = false;
+		if (stristr(current_page_url(), "questions/most_viewed")) {
+			$selected = true;
+		}
+		
+		$item = ElggMenuItem::factory(array(
+			"name" => "most_viewed",
+			"text" => elgg_echo("theme_ffd:questions:filter:most_viewed"),
+			"href" => "questions/most_viewed",
+			"selected" => $selected,
+			"priority" => 600
+		));
+			
+		$return_value[] = $item;
+	}
+
+	return $return_value;
 }

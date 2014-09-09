@@ -1,6 +1,6 @@
 <?php
 
-if (!elgg_in_context("main")) {
+if ((!elgg_in_context("main") && !elgg_in_context("login")) || elgg_is_logged_in()) {
 	$quote = "default";
 	if (elgg_in_context("questions")) {
 		$quote = "questions";

@@ -52,7 +52,7 @@
 	border-bottom: 1px solid #000000;
 	position: relative;
 	height: 24px;
-	z-index: 9000;
+	z-index: 9000 !important;
 }
 .elgg-page-topbar > .elgg-inner {
 	padding: 0 10px;

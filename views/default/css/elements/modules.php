@@ -151,6 +151,7 @@
 .elgg-module-widget > .elgg-head h3 {
 	float: left;
 	padding: 20px 45px 0px 10px;
+	font-size: 18px;
 }
 .elgg-module-widget > .elgg-head h3 a {
 	color: black;

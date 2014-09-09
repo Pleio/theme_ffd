@@ -2,7 +2,8 @@
 ?>
 
 .elgg-page-navbar .elgg-menu-site {
-	left: 100px;
+	left: 110px;
+	z-index: 2;
 }
 
 #theme-ffd-header-pilot {
@@ -62,7 +63,7 @@
 	background: #<?php echo COLOR_BLUE_MEDIUM; ?>;
 	border-left: 5px solid white;
 	padding: 20px;
-	min-height: 280px;
+	min-height: 300px;
 }
 
 .elgg-module-theme-ffd-index-welcome {
@@ -131,6 +132,12 @@
 	background: #<?php echo COLOR_BLUE;?>;
 }
 
+.ffd-blauw,
+.ffd-blauw .elgg-icon,
+.ffd-blauw a {
+	color: black;
+}
+
 .ffd-grijs,
 .ffd-grijs > .elgg-head,
 .ffd-grijs > .elgg-body {
@@ -181,6 +188,10 @@
 	top: -1px;
 }
 
+.elgg-page-topbar .elgg-search {
+	display: none;
+}
+
 .elgg-search-header {
 	top: inherit;
 	bottom: inherit;
@@ -188,16 +199,23 @@
 	height: auto;
 }
 
-.elgg-search-header input[type="text"] {
+.elgg-search-header input.search-input[type="text"] {
 	border-radius: 0;
-	border-color: #<?php echo COLOR_BLUE_MEDIUM; ?>;
+	border: 1px solid #<?php echo COLOR_BLUE_MEDIUM; ?>;
 	width: 292px;
 	color: #CCC;
+	background-position: 2px -934px;
+	height: 16px;
+	padding: 2px 4px 2px 26px;
 }
 
-.elgg-search input[type="text"]:focus, 
-.elgg-search input[type="text"]:active {
-	border-color: #<?php echo COLOR_BLUE_MEDIUM; ?>;
+form.elgg-search {
+	border: none;
+}
+
+.elgg-search input.search-input[type="text"]:focus, 
+.elgg-search input.search-input[type="text"]:active {
+	border: 1px solid #<?php echo COLOR_BLUE_MEDIUM; ?>;
 }
 
 .theme-ffd-question-icon {
@@ -232,4 +250,104 @@
 .theme-ffd-index .elgg-widgets {
 	float: left;
 	min-height: 0;
+}
+
+.theme-ffd-index .elgg-widgets.ui-sortable {
+	min-width: 50px;
+	min-height: 50px !important;
+}
+
+li.elgg-menu-item-access {
+	display: none;
+}
+
+#elgg-widget-col-4 .elgg-module-widget {
+	margin-right: 0;
+}
+
+.elgg-widget-instance-ffd_stats .elgg-widget-content {
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 24px;
+}
+
+.elgg-widget-instance-ffd_stats .elgg-icon-users {
+	color: white;
+	font-size: 18px;
+}
+.elgg-widget-instance-ffd_stats .elgg-icon-bar-chart-o {
+	color: black;
+	font-size: 24px;
+}
+
+.elgg-widget-instance-recent_questions,
+.elgg-widget-instance-recent_questions > .elgg-head,
+.elgg-widget-instance-recent_questions > .elgg-body {
+	background: #<?php echo COLOR_BLUE;?>;
+	color: white;
+}
+
+.elgg-widget-instance-recent_questions .elgg-icon-round-plus,
+.elgg-widget-instance-recent_questions a {
+	color: white;
+}
+
+.elgg-widget-instance-search .elgg-input-text {
+	width: 90%;
+	background: transparent url(<?php echo elgg_get_site_url(); ?>_graphics/elgg_sprites.png) no-repeat 2px -934px !important;
+    border: 1px solid #8fcae7;
+    color: #ccc;
+    height: 16px;
+    padding: 2px 4px 2px 26px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.elgg-widget-instance-content_by_tag .elgg-list > li {
+	padding: 0px;
+	border: none;
+}
+
+.profile .elgg-inner {
+	border: none;
+	border-radius: 0px;
+}
+
+#profile-owner-block {
+	padding: 0;
+	background: transparent;
+	width: 240px;
+}
+
+#profile-owner-block > ul > li {
+	background: #<?php echo COLOR_BLUE_MEDIUM; ?>;
+	text-align: center;
+	margin-top: 5px;
+	padding: 5px;
+}
+
+#profile-owner-block > ul > li a {
+	color: white;
+}
+
+.theme-ffd-profile-icon {
+	padding: 20px;
+	background: #<?php echo COLOR_BLUE_MEDIUM; ?>;
+	
+}
+
+#profile-details .even,
+#profile-details .odd {
+	background: none;
+}
+
+.theme-ffd-profile-question-stats {
+	border: 1px solid #CCC;
+	padding: 20px;
+	font-weight: bold;
+	margin-top: 5px;
+}
+
+.theme-ffd-profile-question-stats-count {
+	color: #<?php echo COLOR_BLUE_MEDIUM; ?>;
 }

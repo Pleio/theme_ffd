@@ -1,7 +1,7 @@
 <?php
 
-	$login = elgg_view("core/account/login_box");
-	$welcome = elgg_view("theme_ffd/index/welcome");
+// 	$login = elgg_view("core/account/login_box");
+// 	$welcome = elgg_view("theme_ffd/index/welcome");
 	
 	$context = "index";
 	
@@ -32,49 +32,78 @@ if (elgg_can_edit_widget_layout($context)) {
 ?>
 	<div class="elgg-col elgg-col-2of3">
 		<div>
-			<div class="elgg-col elgg-col-1of2 elgg-widgets" id="elgg-widget-col-1">A
-			<?php 
-			foreach ($widgets[1] as $widget) {
-				echo elgg_view_entity($widget, array('show_access' => $show_access));
-			}
-			?>
-			
-			</div>
-			<div class="elgg-col elgg-col-1of2">
-				<div class="elgg-col elgg-col-1of2 elgg-widgets" id="elgg-widget-col-2">B
+			<div class="elgg-col elgg-col-1of2 elgg-widgets" id="elgg-widget-col-1">
 				<?php 
-				foreach ($widgets[2] as $widget) {
-					echo elgg_view_entity($widget, array('show_access' => true));
+				foreach ($widgets[1] as $widget) {
+					echo elgg_view_entity($widget, array('show_access' => $show_access));
 				}
 				?>
-				</div>
-				<div class="elgg-col elgg-col-1of2">
-				C
-				</div>
+			</div>
+			<div class="elgg-col elgg-col-1of2">
 				<div>
-				D
+					<div class="elgg-col elgg-col-1of2 elgg-widgets" id="elgg-widget-col-2">
+						<?php 
+						foreach ($widgets[2] as $widget) {
+							echo elgg_view_entity($widget, array('show_access' => true));
+						}
+						?>
+					</div>
+					<div class="elgg-col elgg-col-1of2 elgg-widgets" id="elgg-widget-col-3">
+						<?php 
+						foreach ($widgets[3] as $widget) {
+							echo elgg_view_entity($widget, array('show_access' => true));
+						}
+						?>
+					</div>
+				</div>
+				<div class="elgg-widgets" id="elgg-widget-col-4">
+					<?php 
+					foreach ($widgets[4] as $widget) {
+						echo elgg_view_entity($widget, array('show_access' => true));
+					}
+					?>
 				</div>
 			</div>
 		</div>
 		<div>
-			<div class="elgg-col elgg-col-3of4">
-			E
+			<div class="elgg-col elgg-col-3of4 elgg-widgets" id="elgg-widget-col-5">
+				<?php 
+					foreach ($widgets[5] as $widget) {
+						echo elgg_view_entity($widget, array('show_access' => true));
+					}
+				?>
 			</div>
-			<div class="elgg-col elgg-col-1of4">
-			F
+			<div class="elgg-col elgg-col-1of4 elgg-widgets" id="elgg-widget-col-6">
+				<?php 
+					foreach ($widgets[6] as $widget) {
+						echo elgg_view_entity($widget, array('show_access' => true));
+					}
+				?>
 			</div>
 		</div>
 	</div>
 	<div class="elgg-col elgg-col-1of3">
-		<div>
-		G
+		<div class="elgg-widgets" id="elgg-widget-col-7">
+		<?php 
+			foreach ($widgets[7] as $widget) {
+				echo elgg_view_entity($widget, array('show_access' => true));
+			}
+		?>
 		</div>
 		<div>
-			<div class="elgg-col elgg-col-1of2">
-			H
+			<div class="elgg-col elgg-col-1of2 elgg-widgets" id="elgg-widget-col-8">
+			<?php 
+				foreach ($widgets[8] as $widget) {
+					echo elgg_view_entity($widget, array('show_access' => true));
+				}
+			?>
 			</div>
-			<div class="elgg-col elgg-col-1of2">
-			I
+			<div class="elgg-col elgg-col-1of2 elgg-widgets" id="elgg-widget-col-9">
+			<?php 
+				foreach ($widgets[9] as $widget) {
+					echo elgg_view_entity($widget, array('show_access' => true));
+				}
+			?>
 			</div>
 		</div>
 	</div>
