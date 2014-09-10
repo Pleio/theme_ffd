@@ -17,14 +17,14 @@ function theme_ffd_init() {
 	elgg_extend_view("css/elgg", "css/theme_ffd/site");
 	
 	// Replace the default index page
-	elgg_register_plugin_hook_handler('index', 'system', 'ffd_index');
+	elgg_register_plugin_hook_handler('index', 'system', 'theme_ffd_index');
 	
 	elgg_register_plugin_hook_handler("route", "questions", "theme_ffd_route_questions_hook");
 	elgg_register_plugin_hook_handler("register", "menu:filter", "theme_ffd_questions_filter_menu_hook_handler");
 	
 	// pagehandlers
-	elgg_register_page_handler("profile", "theme_ffdffd_profile_page_handler");
-	elgg_register_page_handler("login", "theme_ffdffd_index");
+	elgg_register_page_handler("profile", "theme_ffd_profile_page_handler");
+	elgg_register_page_handler("login", "theme_ffd_index");
 	
 	//add a widget
 	elgg_register_widget_type("ffd_stats", elgg_echo("ffd_theme:widgets:ffd_stats:title"), elgg_echo("ffd_theme:widgets:ffd_stats:description"), "index");
