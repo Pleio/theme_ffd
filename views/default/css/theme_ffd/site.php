@@ -168,7 +168,6 @@
 	color: #<?php echo COLOR_GREY_LIGHT; ?>;
 	background: #D6D6D6;
 	padding: 5px 10px;
-	margin-right: 5px;
 }
 
 .theme-ffd-body-header-online .elgg-icon {
@@ -350,4 +349,35 @@ li.elgg-menu-item-access {
 
 .theme-ffd-profile-question-stats-count {
 	color: #<?php echo COLOR_BLUE_MEDIUM; ?>;
+}
+
+.elgg-widget-instance-ask_question .elgg-widget-content a {
+	background: #<?php echo COLOR_BLUE_MEDIUM; ?>;
+	color: white;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.elgg-widget-instance-ask_question .elgg-widget-content a .fa {
+	color: white;
+}
+
+.elgg-widget-instance-ask_question .elgg-head,
+.elgg-widget-instance-search .elgg-head {
+	display: none;
+}
+
+.elgg-widget-instance-ask_question.elgg-state-draggable:hover .elgg-head,
+.elgg-widget-instance-search.elgg-state-draggable:hover .elgg-head {
+	display: block;
+}
+
+/** Responsive **/
+@media (max-width: 1120px) {
+	#theme-ffd-header-speech-bubble {
+		left: 0;
+		top: 65px;
+    	width: 100px;
+	}
 }

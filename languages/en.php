@@ -14,6 +14,8 @@ $english = array(
 	'ffd_theme:widgets:recent_questions:more' => "meer vragen",
 	'theme_ffd:questions:filter:most_viewed' => "Meest bekeken",
 	'theme_ffd:questions:most_viewed' => "Meest bekeken vragen",
+	'ffd_theme:widgets:ask_question:title' => "Stel een vraag",
+	'ffd_theme:widgets:ask_question:description' => "Toont knop om een vraag te stellen",
 		
 );
 
