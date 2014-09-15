@@ -280,6 +280,7 @@
 	text-align: center;
 	height: 21px;
 	color: #999;
+	font-weight: bold;
 }
 .elgg-menu-filter > li > a:hover {
 	background: #<?php echo COLOR_BLUE_MEDIUM; ?>;

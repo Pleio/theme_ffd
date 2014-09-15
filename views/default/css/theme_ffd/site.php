@@ -15,6 +15,7 @@
 	position: absolute;
 	left: -50px;
 	z-index: 2;
+	top: 25px;
 }
 
 #theme-ffd-header-speech-bubble-logged-out {
@@ -26,8 +27,8 @@
 
 #theme-ffd-header-subtext {
 	position: absolute;
-	top: 45px;
-	left: 20px;
+	top: 40px;
+	left: 45px;
 }
 
 .elgg-menu-site .fa {
@@ -168,6 +169,8 @@
 	color: #<?php echo COLOR_GREY_LIGHT; ?>;
 	background: #D6D6D6;
 	padding: 5px 10px;
+	font-weight: bold;
+	margin-top: 30px;
 }
 
 .theme-ffd-body-header-online .elgg-icon {
@@ -371,6 +374,114 @@ li.elgg-menu-item-access {
 .elgg-widget-instance-ask_question.elgg-state-draggable:hover .elgg-head,
 .elgg-widget-instance-search.elgg-state-draggable:hover .elgg-head {
 	display: block;
+}
+
+.elgg-form-login .elgg-icon-unlock-alt {
+	color: white;
+}
+
+li.elgg-menu-item-questions-category {
+	float: right;
+	margin: 0;
+}
+
+.elgg-menu-item-questions-category > ul {
+	display: none;
+	border: 1px solid #CCC;
+	position: absolute;
+	width: 100%;
+	padding: 5px;
+	right: 0;
+	z-index: 1;
+	background: white;
+}
+
+.elgg-menu-item-questions-category > ul a {
+	color: black;
+}
+
+.elgg-menu-item-questions-category > a .elgg-icon-caret-down {
+	color: #<?php echo COLOR_BLUE; ?>;
+}
+
+.elgg-menu-item-questions-category:hover > ul {
+	display: block;
+}
+
+#ffd-questions-add {
+	position: absolute;
+	right: 335px;
+	top: 69px;
+	font-size: 12px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	height: 17px;
+	z-index: 1;
+}
+
+#ffd-questions-add .elgg-icon {
+	color: white;
+}
+
+
+.elgg-menu-ffd-questions-alt {
+	margin-left: 10px;
+}
+
+.elgg-menu-ffd-questions-alt li {
+	border: 1px solid #CCC;
+	padding: 2px 4px;
+	margin-bottom: 2px;
+	color: #<?php echo COLOR_GREY_LIGHT;?>;
+}
+
+.ffd-question-list-item h3 a {
+	color: black;
+}
+
+.elgg-menu-ffd-questions-body .elgg-menu-item-comment {
+	background: #<?php echo COLOR_BLUE_MEDIUM; ?>;
+	color: white;
+	padding: 2px 4px;
+	margin-left: 10px;
+}
+
+.elgg-menu-ffd-questions-body .elgg-menu-item-comment:hover {
+	background: #<?php echo COLOR_GREY_LIGHT; ?>;
+}
+
+.elgg-menu-ffd-questions-body .elgg-menu-item-answer {
+	background: #<?php echo COLOR_BLUE; ?>;
+	color: white;
+	padding: 2px 4px;
+	margin-left: 10px;
+}
+
+.elgg-menu-ffd-questions-body .elgg-menu-item-answer:hover {
+	background: #<?php echo COLOR_GREY_DARK; ?>;
+}
+
+.elgg-menu-ffd-questions-body .elgg-menu-item-comment .elgg-icon,
+.elgg-menu-ffd-questions-body .elgg-menu-item-comment a,
+.elgg-menu-ffd-questions-body .elgg-menu-item-answer .elgg-icon,
+.elgg-menu-ffd-questions-body .elgg-menu-item-answer a {
+	color: white;
+	text-decoration: none;
+}
+
+.ffd-questions-comments {
+	margin-top: 20px;
+}
+
+.ffd-questions-comments > .elgg-head,
+.ffd-questions-answers > .elgg-head {
+	background: white;
+	border-bottom: 1px solid black;
+	border-radius: 0;
+}
+
+.ffd-questions-comments .elgg-river-comments li {
+	background: none;
 }
 
 /** Responsive **/

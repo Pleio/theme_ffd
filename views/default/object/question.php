@@ -40,27 +40,7 @@ $answer_options = array(
 );
 
 $num_answers = elgg_get_entities($answer_options);
-$answer_text = "";
-
 if ($num_answers != 0) {
-	$answer_options["limit"] = 1;
-	$answer_options["count"] = false;
-	
-	$correct_answer = $question->getMarkedAnswer();
-
-	if ($correct_answer) {
-		$poster = $correct_answer->getOwnerEntity();
-		$answer_time = elgg_view_friendly_time($correct_answer->time_created);
-		$answer_link = elgg_view("output/url", array("href" => $poster->getURL(), "text" => $poster->name));
-		$answer_text = elgg_echo("questions:answered:correct", array($answer_link, $answer_time));
-	} else {
-		$last_answer = elgg_get_entities($answer_options);
-		
-		$poster = $last_answer[0]->getOwnerEntity();
-		$answer_time = elgg_view_friendly_time($last_answer[0]->time_created);
-		$answer_link = elgg_view("output/url", array("href" => $poster->getURL(), "text" => $poster->name));
-		$answer_text = elgg_echo("questions:answered", array($answer_link, $answer_time));
-	}
 	
 	$answers_link = elgg_view("output/url", array(
 		"href" => $question->getURL() . "#question-answers",
@@ -80,19 +60,10 @@ if (!elgg_in_context("widgets")) {
 	));
 }
 
-$solution_time = $question->solution_time;
-if ($solution_time && !$question->getMarkedAnswer()) {
-	$solution_class = "question-solution-time float-alt";
-	if ($solution_time < time()) {
-		$solution_class .= " question-solution-time-late";
-	} elseif ($solution_time < (time() + (24 * 60 * 60))) {
-		$solution_class .= " question-solution-time-due";
-	}
-	
-	$answer_text .= "<span class='" . $solution_class . "'>" . elgg_view("output/date", array("value" => $question->solution_time)) . "</span>";
-}
-
 if ($full) {
+	global $FFD_QUESTIONS_FULLVIEW;
+	$FFD_QUESTIONS_FULLVIEW = true;
+	
 	$subtitle = "$poster_text $date $answers_link $categories";
 
 	$params = array(
@@ -107,17 +78,18 @@ if ($full) {
 	$list_body .= elgg_view("output/longtext", array("value" => $question->description));
 	
 	$comment_count = $question->countComments();
-	
-	$comment_options = array(
-		"guid" => $question->getGUID(),
-		"annotation_name" => "generic_comment",
-		"limit" => false
-	);
-	$comments = elgg_get_annotations($comment_options);
-	
-	if ($comments) {
-		$list_body .= "<span class='elgg-river-comments-tab'>" . elgg_echo("comments") . "</span>";
-		$list_body .= elgg_view_annotation_list($comments, array("list_class" => "elgg-river-comments"));
+	if ($comment_count) {
+		$comment_options = array(
+			"guid" => $question->getGUID(),
+			"annotation_name" => "generic_comment",
+			"limit" => false
+		);
+		$comments = elgg_get_annotations($comment_options);
+		
+		$comment_title = elgg_view_icon("comments-o", "mrs") . elgg_echo("comments");
+		$comment_content = elgg_view_annotation_list($comments, array("list_class" => "elgg-river-comments"));
+		
+		$list_body .= elgg_view_module("info", $comment_title, $comment_content, array("class" => "ffd-questions-comments"));
 	}
 	
 	// show a comment form like in the river
@@ -145,17 +117,28 @@ if ($full) {
 		"is_trusted" => true
 	));
 	
-	$subtitle = "$poster_text $date $answers_link $categories";
+	$subtitle = "$poster_text $date $categories";
+	
+	$content = elgg_get_excerpt($question->description);
 
 	$params = array(
 		"entity" => $question,
 		"title" => $title,
-		"metadata" => $metadata,
 		"subtitle" => $subtitle,
 		"tags" => $tags,
-		"content" => $answer_text
+		"content" => $content
 	);
 	$list_body = elgg_view("object/elements/summary", $params);
+	
+	$list_body .= elgg_view_menu("ffd_questions_body", array(
+		"sort_by" => "priority",
+		"entity" => $question,
+		"class" => "elgg-menu-hz float-alt"
+	));
 
-	echo elgg_view_image_block($poster_icon, $list_body);
+	$image_alt = elgg_view_menu("ffd_questions_alt", array(
+		"sort_by" => "priority",
+		"entity" => $question
+	));
+	echo elgg_view_image_block($poster_icon, $list_body, array("image_alt" => $image_alt, "class" => "ffd-question-list-item"));
 }

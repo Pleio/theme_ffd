@@ -13,7 +13,7 @@
 /* Base */
 .elgg-button {
 	font-size: 14px;
-	font-weight: bold;
+	font-weight: normal;
 	border-radius: 0;
 	width: auto;
 	padding: 2px 4px;

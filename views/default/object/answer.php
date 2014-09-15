@@ -45,8 +45,10 @@ if ($comment_count) {
 	
 	$comments = elgg_get_annotations($comment_options);
 	
-	$body .= "<span class='elgg-river-comments-tab'>" . elgg_echo('comments') . "</span>";
-	$body .= elgg_view_annotation_list($comments, array('list_class' => 'elgg-river-comments'));
+	$comment_title = elgg_view_icon("comments-o", "mrs") . elgg_echo("comments");
+	$comment_content = elgg_view_annotation_list($comments, array("list_class" => "elgg-river-comments"));
+	
+	$body .= elgg_view_module("info", $comment_title, $comment_content, array("class" => "ffd-questions-comments"));
 }
 
 // show a comment form like in the river

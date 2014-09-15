@@ -14,9 +14,19 @@ $english = array(
 	'ffd_theme:widgets:recent_questions:more' => "meer vragen",
 	'theme_ffd:questions:filter:most_viewed' => "Meest bekeken",
 	'theme_ffd:questions:most_viewed' => "Meest bekeken vragen",
+	'theme_ffd:questions:filter:category' => "Zoek op categorie",
 	'ffd_theme:widgets:ask_question:title' => "Stel een vraag",
 	'ffd_theme:widgets:ask_question:description' => "Toont knop om een vraag te stellen",
-		
+	'theme_ffd:questions:add' => "Nieuwe vraag stellen",
+	
+	'theme_ffd:entity_view_counter:questions:menu:views' => "bekeken (%d)",
+	'theme_ffd:likes:questions:menu:views' => "geliked (%d)",
+	'theme_ffd:likes:questions:menu' => "liken",
+	'theme_ffd:likes:questions:menu:unlike' => "unliken",
+	'theme_ffd:comments:questions:menu:views' => "reacties (%d)",
+	'theme_ffd:comments:questions:menu' => "reageren op vraag",
+	'theme_ffd:answers:questions:menu:views' => "antwoorden (%d)",
+	'theme_ffd:answers:questions:menu' => "antwoord geven",
 );
 
 add_translation("en", $english);
