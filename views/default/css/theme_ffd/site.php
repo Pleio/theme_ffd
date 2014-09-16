@@ -246,7 +246,7 @@ form.elgg-search {
 }
 
 .theme-ffd-index {
-	padding-top: 40px;
+	padding-top: 80px;
 }
 
 .theme-ffd-index .elgg-widgets {
@@ -482,6 +482,11 @@ li.elgg-menu-item-questions-category {
 
 .ffd-questions-comments .elgg-river-comments li {
 	background: none;
+}
+
+.elgg-output table td,
+.elgg-output table {
+	border: inherit;
 }
 
 /** Responsive **/

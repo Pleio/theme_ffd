@@ -37,12 +37,15 @@ if (elgg_is_logged_in()) {
 		$page_owner_entity = elgg_get_page_owner_entity();
 		$url = "questions/add/" . $page_owner_entity->guid;
 		
-		echo elgg_view("output/url", array(
-			"text" => elgg_view_icon("round-plus") . " " . elgg_echo("questions:add"),
-			"href" => $url,
-			"id" => "ffd-questions-add",
-			"class" => "elgg-button elgg-button-submit"
-		));		
+		if (elgg_in_context("questions")) {
+			echo elgg_view("output/url", array(
+				"text" => elgg_view_icon("round-plus") . " " . elgg_echo("questions:add"),
+				"href" => $url,
+				"id" => "ffd-questions-add",
+				"class" => "elgg-button elgg-button-submit"
+			));		
+		}		
+		
 		echo elgg_view("search/header");
 	}
 	

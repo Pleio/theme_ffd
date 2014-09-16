@@ -201,7 +201,7 @@
 						if ($show_timestamp) {
 							$result .= "<span title='" . strftime("%c", $entity->time_created) . "'>" . strftime("%d %b", $entity->time_created) . "</span> - ";
 						}
-						$result .= elgg_view_icon("play-circle-o") . " ";
+						$result .= elgg_view_icon("round-plus") . " ";
 						$result .= "<a href='" . $entity_url . "'>" . $entity->title . "</a>";
 						$result .= "</div>";
 					}

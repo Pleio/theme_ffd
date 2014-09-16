@@ -7,3 +7,10 @@ echo elgg_view("output/img", array(
 
 echo "<h1>" . elgg_echo("theme_ffd:index:title") . "</h1>";
 echo elgg_echo("theme_ffd:index:description");
+
+?>
+<style type="text/css">
+	.elgg-main {
+		padding-top: 60px;
+	}
+</style>
