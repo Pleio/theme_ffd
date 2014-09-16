@@ -139,6 +139,12 @@
 	color: black;
 }
 
+.ffd-blauw-middel,
+.ffd-blauw-middel > .elgg-head,
+.ffd-blauw-middel > .elgg-body {
+	background: #<?php echo COLOR_BLUE_MEDIUM;?>;
+}
+
 .ffd-grijs,
 .ffd-grijs > .elgg-head,
 .ffd-grijs > .elgg-body {
@@ -153,6 +159,12 @@
 
 .elgg-output .fa {
 	color: #<?php echo COLOR_GREY_DARK;?>;
+}
+
+.elgg-icon-hover-menu {
+	background: white;
+	padding-left: 2px;
+	color: #<?php echo COLOR_BLUE; ?>;
 }
 
 .theme-ffd-body-header {
