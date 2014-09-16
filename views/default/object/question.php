@@ -66,9 +66,16 @@ if ($full) {
 	
 	$subtitle = "$poster_text $date $answers_link $categories";
 
+	$title = "";
+	if ($question->getStatus() == "closed") {
+		$title .= elgg_view_icon("lock-closed");
+	}
+	
+	$title = $question->title;
+	
 	$params = array(
 		"entity" => $question,
-		"title" => false,
+		"title" => $title,
 		"metadata" => $metadata,
 		"subtitle" => $subtitle,
 		"tags" => $tags,
@@ -101,6 +108,7 @@ if ($full) {
 	$list_body .= "<div class='elgg-river-item hidden' id='comments-add-" . $question->getGUID() . "'>";
 	$list_body .= elgg_view_form("comments/add", array(), $body_vars);
 	$list_body .= "</div>";
+	$list_body .= "<style type='text/css'>.elgg-main > .elgg-head { display: none; }</style>";
 	
 	echo elgg_view_image_block($poster_icon, $list_body);
 
