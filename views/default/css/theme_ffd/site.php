@@ -501,6 +501,10 @@ li.elgg-menu-item-questions-category {
 	border: inherit;
 }
 
+.widget_manager_disable_widget_content_style .elgg-output {
+	margin: 0;
+}
+
 /** Responsive **/
 @media (max-width: 1120px) {
 	#theme-ffd-header-speech-bubble {
