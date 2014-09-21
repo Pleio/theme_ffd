@@ -39,7 +39,7 @@ $content = elgg_view_entity($question, array('full_view' => true));
 $answers = "";
 
 // add the answer marked as the correct answer first
-$marked_answer = $question->getMarkedAnswer();
+$marked_answer = $question->getCorrectAnswer();
 if ($marked_answer) {
 	$answers .= elgg_view_entity($marked_answer);
 }

@@ -108,15 +108,6 @@ function theme_ffd_questions_alt_menu_hook_handler($hook, $type, $return_value, 
 		));
 	}
 	
-	// comments
-	$count = $entity->countComments();
-	$return_value[] = ElggMenuItem::factory(array(
-		"name" => "comments",
-		"text" => elgg_view_icon("comments-o", "mrs") . elgg_echo("theme_ffd:comments:questions:menu:views", array($count)),
-		"href" => false,
-		"priority" => 300
-	));
-	
 	// answers
 	$answer_options = array(
 		"type" => "object",
@@ -165,14 +156,6 @@ function theme_ffd_questions_body_menu_hook_handler($hook, $type, $return_value,
 			'priority' => 100,
 		));
 	}
-
-	// comments
-	$return_value[] = ElggMenuItem::factory(array(
-		"name" => "comment",
-		"text" => elgg_view_icon("comments-o", "mrs") . elgg_echo("theme_ffd:comments:questions:menu"),
-		"href" => "questions/view/" . $entity->getGUID() . "#comments-add-" . $entity->getGUID(),
-		"priority" => 300
-	));
 
 	// answers
 	$return_value[] = ElggMenuItem::factory(array(
