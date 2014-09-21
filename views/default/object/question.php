@@ -49,10 +49,12 @@ $answer_options = array(
 	"type" => "object",
 	"subtype" => $answer_subtype,
 	"container_guid" => $question->getGUID(),
-	"count" => true,
+	"count" => true
 );
 
 $num_answers = elgg_get_entities($answer_options);
+$answer_text = "";
+
 if ($num_answers != 0) {
 	
 	$answers_link = elgg_view("output/url", array(
@@ -103,9 +105,32 @@ if ($full) {
 } else {
 	// brief view
 	$title_text = "";
-	if ($question->getCorrectAnswer() && !$workflow) {
-		$title_text = elgg_view_icon("checkmark", "mrs question-listing-checkmark");
+
+	if ($workflow) {
+		if ($latestAnswer = $question->getLatestIntAnswer()) {
+			$poster = $latestAnswer->getOwnerEntity();
+			$answer_time = elgg_view_friendly_time($latestAnswer->time_created);
+			$answer_link = elgg_view("output/url", array("href" => $poster->getURL(), "text" => $poster->name));
+			$answer_text = elgg_echo("questions:answered", array($answer_link, $answer_time));
+		} else {
+			$answer_text = null;
+		}
+	} else {
+		if ($question->getCorrectAnswer()) {
+			$title_text = elgg_view_icon("checkmark", "mrs question-listing-checkmark");
+			$answer_time = elgg_view_friendly_time($question->getCorrectAnswer()->time_created);
+			$answer_link = elgg_view("output/url", array("href" => $poster->getURL(), "text" => $poster->name));		
+			$answer_text = elgg_echo("questions:answered:correct", array($answer_link, $answer_time));			
+		} elseif ($latestAnswer = $question->getLatestAnswer()) {
+			$poster = $latestAnswer->getOwnerEntity();
+			$answer_time = elgg_view_friendly_time($latestAnswer->time_created);
+			$answer_link = elgg_view("output/url", array("href" => $poster->getURL(), "text" => $poster->name));
+			$answer_text = elgg_echo("questions:answered", array($answer_link, $answer_time));			
+		} else {
+			$answer_text = null;
+		}
 	}
+
 	$title_text .= elgg_get_excerpt($question->title, 100);
 
 	if ($workflow) {
@@ -125,7 +150,7 @@ if ($full) {
 	$params = array(
 		"entity" => $question,
 		"title" => $title,
-		"subtitle" => $subtitle,
+		"subtitle" => $subtitle . "<br />" . $answer_text,
 		"tags" => $tags,
 		"content" => $content
 	);

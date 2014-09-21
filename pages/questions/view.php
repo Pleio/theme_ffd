@@ -50,7 +50,8 @@ $options = array(
 	'subtype' => 'answer',
 	'container_guid' => $question->guid,
 	'count' => true,
-	'limit' => false
+	'limit' => false,
+	'pagination' => false
 );
 
 if ($marked_answer) {

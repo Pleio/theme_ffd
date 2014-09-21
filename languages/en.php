@@ -28,6 +28,9 @@ $english = array(
 	'theme_ffd:answers:questions:menu:views' => "antwoorden (%d)",
 	'theme_ffd:answers:questions:menu' => "antwoord geven",
 
+  'theme_ffd:questions:menu:subscribe' => 'vraag volgen',
+  'theme_ffd:questions:menu:unsubscribe' => 'vraag ontvolgen',
+
   'questions:menu:filter:experts' => 'IA-medewerkers',
   'questions:menu:user_hover:make_expert:confirm' => 'Weet je zeker dat je deze gebruiker een IA-medewerker wilt maken van %s?',
   'questions:menu:user_hover:make_expert' => 'Maak IA-medewerker',
