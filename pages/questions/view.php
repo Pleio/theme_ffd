@@ -19,12 +19,12 @@ elgg_set_page_owner_guid($question->getContainerGUID());
 $page_owner = $question->getContainerEntity();
 
 // set breadcrumb
-$crumbs_title = $page_owner->name;
+$crumbs_title = elgg_echo("questions");
 
 if (elgg_instanceof($page_owner, 'group')) {
 	elgg_push_breadcrumb($crumbs_title, "questions/group/$page_owner->guid");
 } else {
-	elgg_push_breadcrumb($crumbs_title, "questions/owner/$page_owner->username");
+	elgg_push_breadcrumb($crumbs_title, "questions/all");
 }
 
 $title = $question->title;
