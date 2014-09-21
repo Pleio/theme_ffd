@@ -74,7 +74,7 @@ function theme_ffd_questions_filter_menu_hook_handler($hook, $type, $return_valu
 }
 
 function theme_ffd_questions_alt_menu_hook_handler($hook, $type, $return_value, $params) {
-	
+
 	if (empty($params) || !is_array($params)) {
 		return $return_value;
 	}

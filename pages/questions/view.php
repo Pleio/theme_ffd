@@ -94,7 +94,6 @@ if (($question->getStatus() == "open") && $question->canWriteToContainer(0, 'obj
 }
 
 $body = elgg_view_layout('content', array(
-	'title' => $title_icon . $title,
 	'content' => $content,
 	'filter' => '',
 ));
