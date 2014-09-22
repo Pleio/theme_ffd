@@ -473,6 +473,10 @@ li.elgg-menu-item-questions-category {
 	background: #<?php echo COLOR_GREY_DARK; ?>;
 }
 
+.elgg-menu-ffd-questions-body .elgg-menu-item-like {
+	margin-left: 10px;
+}
+
 .elgg-menu-ffd-questions-body .elgg-menu-item-comment .elgg-icon,
 .elgg-menu-ffd-questions-body .elgg-menu-item-comment a,
 .elgg-menu-ffd-questions-body .elgg-menu-item-answer .elgg-icon,
