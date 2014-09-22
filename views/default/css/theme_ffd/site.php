@@ -1,6 +1,10 @@
 <?php
 ?>
 
+span.question-workflow-status {
+	color: blue;
+}
+
 .elgg-page-navbar .elgg-menu-site {
 	left: 110px;
 	z-index: 2;
