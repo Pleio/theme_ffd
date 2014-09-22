@@ -28,7 +28,11 @@ foreach ($annotations as $annotation) {
     $answer->time_created = $annotation->time_created;
     $answer->save();
 
+    echo "Migrated annotation: " . $annotation->id . "<br />";
+
     $annotation->delete();
 
   }
 }
+
+echo "Done!";
