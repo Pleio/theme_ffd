@@ -19,17 +19,25 @@ elgg_set_page_owner_guid($question->getContainerGUID());
 $page_owner = $question->getContainerEntity();
 
 // set breadcrumb
-$crumbs_title = elgg_echo("questions");
+elgg_push_breadcrumb(elgg_echo('questions'), "questions/all");
 
-if (elgg_instanceof($page_owner, 'group')) {
-	elgg_push_breadcrumb($crumbs_title, "questions/group/$page_owner->guid");
-} else {
-	elgg_push_breadcrumb($crumbs_title, "questions/all");
+if ($workflow == true) {
+  elgg_push_breadcrumb(elgg_echo("questions:workflow"), "questions/workflow");
 }
 
-$title = $question->title;
+if (elgg_instanceof($page_owner, 'group')) {
+  $base_url = "questions/group/$page_owner->guid/";
 
-elgg_push_breadcrumb($title);
+  if ($workflow == true) {
+    $url = $base_url . "workflow";
+  } else {
+    $url = $base_url . "all";
+  }
+
+  elgg_push_breadcrumb($page_owner->name, $url);
+}
+
+elgg_push_breadcrumb($question->title);
 
 // build page elements
 $title_icon = "";

@@ -8,7 +8,6 @@ function theme_ffd_index($hook, $type, $return, $params) {
 }
 
 function theme_ffd_route_questions_hook($hook_name, $entity_type, $return_value, $params) {
-
 	if (!empty($return_value) && is_array($return_value)) {
 		$page = elgg_extract("segments", $return_value);
 			
@@ -17,6 +16,7 @@ function theme_ffd_route_questions_hook($hook_name, $entity_type, $return_value,
 				if (isset($page[1])) {
 					set_input("guid", $page[1]);
 				}
+
 				include(dirname(dirname(__FILE__)) . "/pages/questions/view.php");
 				return false;
 				break;
