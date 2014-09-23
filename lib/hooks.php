@@ -73,6 +73,35 @@ function theme_ffd_questions_filter_menu_hook_handler($hook, $type, $return_valu
 	return $return_value;
 }
 
+
+function theme_ffd_questions_entity_hook($hook_name, $entity_type, $return_value, $params) {
+	$entity = elgg_extract("entity", $params);
+	$full_view = elgg_extract("full_view", $params);
+
+	if (elgg_instanceof($entity, 'object', 'question') && $full_view) {
+		if (elgg_is_logged_in() && elgg_is_active_plugin("content_subscriptions")) {
+			if (!content_subscriptions_check_subscription($entity->guid)) {
+				$url = "action/content_subscriptions/subscribe?entity_guid=" . $entity->getGUID();
+				$text = elgg_view_icon('clip', 'mrs') . elgg_echo('theme_ffd:questions:menu:subscribe');
+			} else {
+				$url = "action/content_subscriptions/subscribe?entity_guid=" . $entity->getGUID();
+				$text = elgg_view_icon('clip', 'mrs') . elgg_echo('theme_ffd:questions:menu:unsubscribe');
+			}
+
+			$return_value[] = ElggMenuItem::factory(array(
+				"name" => "content_subscription",
+				"text" => $text,
+				"href" => $url,
+				'is_action' => true,
+				"priority" => 90
+			));
+		}
+	}
+
+	return $return_value;
+}
+
+
 function theme_ffd_questions_alt_menu_hook_handler($hook, $type, $return_value, $params) {
 
 	if (empty($params) || !is_array($params)) {
@@ -149,7 +178,7 @@ function theme_ffd_questions_body_menu_hook_handler($hook, $type, $return_value,
 		}
 
 		$return_value[] = ElggMenuItem::factory(array(
-			"name" => "view_counter",
+			"name" => "content_subscription",
 			"text" => $text,
 			"href" => $url,
 			'is_action' => true,
