@@ -8,7 +8,6 @@ function theme_ffd_index($hook, $type, $return, $params) {
 }
 
 function theme_ffd_route_questions_hook($hook_name, $entity_type, $return_value, $params) {
-
 	if (!empty($return_value) && is_array($return_value)) {
 		$page = elgg_extract("segments", $return_value);
 			
@@ -17,6 +16,7 @@ function theme_ffd_route_questions_hook($hook_name, $entity_type, $return_value,
 				if (isset($page[1])) {
 					set_input("guid", $page[1]);
 				}
+
 				include(dirname(dirname(__FILE__)) . "/pages/questions/view.php");
 				return false;
 				break;
@@ -73,8 +73,37 @@ function theme_ffd_questions_filter_menu_hook_handler($hook, $type, $return_valu
 	return $return_value;
 }
 
+
+function theme_ffd_questions_entity_hook($hook_name, $entity_type, $return_value, $params) {
+	$entity = elgg_extract("entity", $params);
+	$full_view = elgg_extract("full_view", $params);
+
+	if (elgg_instanceof($entity, 'object', 'question') && $full_view) {
+		if (elgg_is_logged_in() && elgg_is_active_plugin("content_subscriptions")) {
+			if (!content_subscriptions_check_subscription($entity->guid)) {
+				$url = "action/content_subscriptions/subscribe?entity_guid=" . $entity->getGUID();
+				$text = elgg_view_icon('clip', 'mrs') . elgg_echo('theme_ffd:questions:menu:subscribe');
+			} else {
+				$url = "action/content_subscriptions/subscribe?entity_guid=" . $entity->getGUID();
+				$text = elgg_view_icon('clip', 'mrs') . elgg_echo('theme_ffd:questions:menu:unsubscribe');
+			}
+
+			$return_value[] = ElggMenuItem::factory(array(
+				"name" => "content_subscription",
+				"text" => $text,
+				"href" => $url,
+				'is_action' => true,
+				"priority" => 90
+			));
+		}
+	}
+
+	return $return_value;
+}
+
+
 function theme_ffd_questions_alt_menu_hook_handler($hook, $type, $return_value, $params) {
-	
+
 	if (empty($params) || !is_array($params)) {
 		return $return_value;
 	}
@@ -108,15 +137,6 @@ function theme_ffd_questions_alt_menu_hook_handler($hook, $type, $return_value, 
 		));
 	}
 	
-	// comments
-	$count = $entity->countComments();
-	$return_value[] = ElggMenuItem::factory(array(
-		"name" => "comments",
-		"text" => elgg_view_icon("comments-o", "mrs") . elgg_echo("theme_ffd:comments:questions:menu:views", array($count)),
-		"href" => false,
-		"priority" => 300
-	));
-	
 	// answers
 	$answer_options = array(
 		"type" => "object",
@@ -147,6 +167,25 @@ function theme_ffd_questions_body_menu_hook_handler($hook, $type, $return_value,
 		return $return_value;
 	}
 
+	// content subscriptions
+	if (elgg_is_logged_in() && elgg_is_active_plugin("content_subscriptions")) {
+		if (!content_subscriptions_check_subscription($entity->guid)) {
+			$url = "action/content_subscriptions/subscribe?entity_guid=" . $entity->getGUID();
+			$text = elgg_view_icon('clip', 'mrs') . elgg_echo('theme_ffd:questions:menu:subscribe');
+		} else {
+			$url = "action/content_subscriptions/subscribe?entity_guid=" . $entity->getGUID();
+			$text = elgg_view_icon('clip', 'mrs') . elgg_echo('theme_ffd:questions:menu:unsubscribe');
+		}
+
+		$return_value[] = ElggMenuItem::factory(array(
+			"name" => "content_subscription",
+			"text" => $text,
+			"href" => $url,
+			'is_action' => true,
+			"priority" => 90
+		));
+	}
+
 	// likes
 	if (elgg_is_logged_in() && elgg_is_active_plugin("likes") && $entity->canAnnotate(0, 'likes')) {
 		// likes button
@@ -157,6 +196,7 @@ function theme_ffd_questions_body_menu_hook_handler($hook, $type, $return_value,
 			$url = "action/likes/delete?guid=" . $entity->getGUID();
 			$text = elgg_view_icon('thumbs-up-alt', 'mrs') . elgg_echo('theme_ffd:likes:questions:menu:unlike');
 		}
+
 		$return_value[] = ElggMenuItem::factory( array(
 			'name' => 'like',
 			'text' => $text,
@@ -165,14 +205,6 @@ function theme_ffd_questions_body_menu_hook_handler($hook, $type, $return_value,
 			'priority' => 100,
 		));
 	}
-
-	// comments
-	$return_value[] = ElggMenuItem::factory(array(
-		"name" => "comment",
-		"text" => elgg_view_icon("comments-o", "mrs") . elgg_echo("theme_ffd:comments:questions:menu"),
-		"href" => "questions/view/" . $entity->getGUID() . "#comments-add-" . $entity->getGUID(),
-		"priority" => 300
-	));
 
 	// answers
 	$return_value[] = ElggMenuItem::factory(array(

@@ -7,9 +7,16 @@
 
 $full = elgg_extract("full_view", $vars, false);
 $question = elgg_extract("entity", $vars, false);
+$workflow = elgg_extract("workflow", $vars, false);
 
 if (!$question) {
 	return true;
+}
+
+if ($workflow) {
+	$url = $question->getWorkflowURL();
+} else {
+	$url = $question->getURL();
 }
 
 $poster = $question->getOwnerEntity();
@@ -32,18 +39,26 @@ $date = elgg_view_friendly_time($question->time_created);
 
 $answers_link = "";
 
+if ($workflow) {
+	$answer_subtype = "intanswer";
+} else {
+	$answer_subtype = "answer";
+}
+
 $answer_options = array(
 	"type" => "object",
-	"subtype" => "answer",
+	"subtype" => $answer_subtype,
 	"container_guid" => $question->getGUID(),
-	"count" => true,
+	"count" => true
 );
 
 $num_answers = elgg_get_entities($answer_options);
+$answer_text = "";
+
 if ($num_answers != 0) {
 	
 	$answers_link = elgg_view("output/url", array(
-		"href" => $question->getURL() . "#question-answers",
+		"href" => $url . "#question-answers",
 		"text" => elgg_echo("answers") . " ($num_answers)",
 	));
 }
@@ -83,31 +98,6 @@ if ($full) {
 	$list_body = elgg_view("object/elements/summary", $params);
 	
 	$list_body .= elgg_view("output/longtext", array("value" => $question->description));
-	
-	$comment_count = $question->countComments();
-	if ($comment_count) {
-		$comment_options = array(
-			"guid" => $question->getGUID(),
-			"annotation_name" => "generic_comment",
-			"limit" => false
-		);
-		$comments = elgg_get_annotations($comment_options);
-		
-		$comment_title = elgg_view_icon("comments-o", "mrs") . elgg_echo("comments");
-		$comment_content = elgg_view_annotation_list($comments, array("list_class" => "elgg-river-comments"));
-		
-		$list_body .= elgg_view_module("info", $comment_title, $comment_content, array("class" => "ffd-questions-comments"));
-	}
-	
-	// show a comment form like in the river
-	$body_vars = array(
-		"entity" => $question,
-		"inline" => true
-	);
-	
-	$list_body .= "<div class='elgg-river-item hidden' id='comments-add-" . $question->getGUID() . "'>";
-	$list_body .= elgg_view_form("comments/add", array(), $body_vars);
-	$list_body .= "</div>";
 	$list_body .= "<style type='text/css'>.elgg-main > .elgg-head { display: none; }</style>";
 	
 	echo elgg_view_image_block($poster_icon, $list_body);
@@ -115,16 +105,44 @@ if ($full) {
 } else {
 	// brief view
 	$title_text = "";
-	if ($question->getMarkedAnswer()) {
-		$title_text = elgg_view_icon("checkmark", "mrs question-listing-checkmark");
+
+	if ($workflow) {
+		if ($latestAnswer = $question->getLatestIntAnswer()) {
+			$poster = $latestAnswer->getOwnerEntity();
+			$answer_time = elgg_view_friendly_time($latestAnswer->time_created);
+			$answer_link = elgg_view("output/url", array("href" => $poster->getURL(), "text" => $poster->name));
+			$answer_text = elgg_echo("questions:answered", array($answer_link, $answer_time));
+		} else {
+			$answer_text = null;
+		}
+	} else {
+		if ($question->getCorrectAnswer()) {
+			$title_text = elgg_view_icon("checkmark", "mrs question-listing-checkmark");
+			$answer_time = elgg_view_friendly_time($question->getCorrectAnswer()->time_created);
+			$answer_link = elgg_view("output/url", array("href" => $poster->getURL(), "text" => $poster->name));		
+			$answer_text = elgg_echo("questions:answered:correct", array($answer_link, $answer_time));			
+		} elseif ($latestAnswer = $question->getLatestAnswer()) {
+			$poster = $latestAnswer->getOwnerEntity();
+			$answer_time = elgg_view_friendly_time($latestAnswer->time_created);
+			$answer_link = elgg_view("output/url", array("href" => $poster->getURL(), "text" => $poster->name));
+			$answer_text = elgg_echo("questions:answered", array($answer_link, $answer_time));			
+		} else {
+			$answer_text = null;
+		}
 	}
+
 	$title_text .= elgg_get_excerpt($question->title, 100);
-	$title = elgg_view("output/url", array(
+
+	if ($workflow) {
+		$title = elgg_view('questions/workflow/status', array('question'=>$question));
+	}
+
+	$title .= elgg_view("output/url", array(
 		"text" => $title_text,
-		"href" => $question->getURL(),
+		"href" => $url,
 		"is_trusted" => true
-	));
-	
+	));	
+
 	$subtitle = "$poster_text $date $categories";
 	
 	$content = elgg_get_excerpt($question->description);
@@ -132,21 +150,31 @@ if ($full) {
 	$params = array(
 		"entity" => $question,
 		"title" => $title,
-		"subtitle" => $subtitle,
+		"subtitle" => $subtitle . "<br />" . $answer_text,
 		"tags" => $tags,
 		"content" => $content
 	);
+
+	if ($workflow) {
+		$params['metadata'] = elgg_view("questions/workflow/overview", array('question'=>$question));
+	}
+
 	$list_body = elgg_view("object/elements/summary", $params);
 	
-	$list_body .= elgg_view_menu("ffd_questions_body", array(
-		"sort_by" => "priority",
-		"entity" => $question,
-		"class" => "elgg-menu-hz float-alt"
-	));
+	if (!$workflow) {
+		$list_body .= elgg_view_menu("ffd_questions_body", array(
+			"sort_by" => "priority",
+			"entity" => $question,
+			"class" => "elgg-menu-hz float-alt"
+		));
+	
+		$image_alt = elgg_view_menu("ffd_questions_alt", array(
+			"sort_by" => "priority",
+			"entity" => $question
+		));		
+	} else {
+		$image_alt = null;
+	}
 
-	$image_alt = elgg_view_menu("ffd_questions_alt", array(
-		"sort_by" => "priority",
-		"entity" => $question
-	));
 	echo elgg_view_image_block($poster_icon, $list_body, array("image_alt" => $image_alt, "class" => "ffd-question-list-item"));
 }

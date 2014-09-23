@@ -19,17 +19,25 @@ elgg_set_page_owner_guid($question->getContainerGUID());
 $page_owner = $question->getContainerEntity();
 
 // set breadcrumb
-$crumbs_title = $page_owner->name;
+elgg_push_breadcrumb(elgg_echo('questions'), "questions/all");
 
-if (elgg_instanceof($page_owner, 'group')) {
-	elgg_push_breadcrumb($crumbs_title, "questions/group/$page_owner->guid");
-} else {
-	elgg_push_breadcrumb($crumbs_title, "questions/owner/$page_owner->username");
+if ($workflow == true) {
+  elgg_push_breadcrumb(elgg_echo("questions:workflow"), "questions/workflow");
 }
 
-$title = $question->title;
+if (elgg_instanceof($page_owner, 'group')) {
+  $base_url = "questions/group/$page_owner->guid/";
 
-elgg_push_breadcrumb($title);
+  if ($workflow == true) {
+    $url = $base_url . "workflow";
+  } else {
+    $url = $base_url . "all";
+  }
+
+  elgg_push_breadcrumb($page_owner->name, $url);
+}
+
+elgg_push_breadcrumb($question->title);
 
 // build page elements
 $title_icon = "";
@@ -39,7 +47,7 @@ $content = elgg_view_entity($question, array('full_view' => true));
 $answers = "";
 
 // add the answer marked as the correct answer first
-$marked_answer = $question->getMarkedAnswer();
+$marked_answer = $question->getCorrectAnswer();
 if ($marked_answer) {
 	$answers .= elgg_view_entity($marked_answer);
 }
@@ -50,7 +58,8 @@ $options = array(
 	'subtype' => 'answer',
 	'container_guid' => $question->guid,
 	'count' => true,
-	'limit' => false
+	'limit' => false,
+	'pagination' => false
 );
 
 if ($marked_answer) {
@@ -93,7 +102,6 @@ if (($question->getStatus() == "open") && $question->canWriteToContainer(0, 'obj
 }
 
 $body = elgg_view_layout('content', array(
-	'title' => $title_icon . $title,
 	'content' => $content,
 	'filter' => '',
 ));

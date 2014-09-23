@@ -27,6 +27,17 @@ $english = array(
 	'theme_ffd:comments:questions:menu' => "reageren op vraag",
 	'theme_ffd:answers:questions:menu:views' => "antwoorden (%d)",
 	'theme_ffd:answers:questions:menu' => "antwoord geven",
+
+  'theme_ffd:questions:menu:subscribe' => 'vraag volgen',
+  'theme_ffd:questions:menu:unsubscribe' => 'vraag niet volgen',
+
+  'questions:menu:filter:experts' => 'IA-medewerkers',
+  'questions:menu:user_hover:make_expert:confirm' => 'Weet je zeker dat je deze gebruiker een IA-medewerker wilt maken van %s?',
+  'questions:menu:user_hover:make_expert' => 'Maak IA-medewerker',
+  'questions:menu:user_hover:remove_expert' => 'Verwijder IA-medewerker',
+  'questions:menu:user_hover:remove_expert:confirm' => 'Weet je zeker dat je deze gebruiker wilt verwijderen als IA-medewerker van %s?',
+  'questions:experts:title' => 'IA-medewerkers',
+  'questions:experts:none' => 'Er zijn nog geen IA-medewerkers toegekend aan %s.'
 );
 
 add_translation("en", $english);

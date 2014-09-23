@@ -25,6 +25,7 @@ function theme_ffd_init() {
 	elgg_register_plugin_hook_handler("register", "menu:filter", "theme_ffd_questions_filter_menu_hook_handler");
 	elgg_register_plugin_hook_handler("register", "menu:ffd_questions_alt", "theme_ffd_questions_alt_menu_hook_handler");
 	elgg_register_plugin_hook_handler("register", "menu:ffd_questions_body", "theme_ffd_questions_body_menu_hook_handler");
+	elgg_register_plugin_hook_handler("register", "menu:entity", "theme_ffd_questions_entity_hook");
 	
 	// pagehandlers
 	elgg_register_page_handler("profile", "theme_ffd_profile_page_handler");
