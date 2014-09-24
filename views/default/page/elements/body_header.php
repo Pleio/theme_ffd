@@ -5,6 +5,12 @@ if ((!elgg_in_context("main") && !elgg_in_context("login")) || elgg_is_logged_in
 	if (elgg_in_context("questions")) {
 		$quote = "questions";
 	}
+	if (elgg_in_context("videos")) {
+		$quote = "videos";
+	}
+	if (elgg_in_context("nieuws")) {
+		$quote = "nieuws";
+	}
 	echo elgg_view("output/img", array(
 			"src" => THEME_GRAPHICS . "quotes/txt_" . $quote . ".png",
 			"id" => "theme-ffd-header-subtext"
