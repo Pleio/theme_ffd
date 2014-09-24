@@ -298,15 +298,14 @@ li.elgg-menu-item-access {
 	font-size: 24px;
 }
 
-.elgg-widget-instance-recent_questions,
 .elgg-widget-instance-recent_questions > .elgg-head,
-.elgg-widget-instance-recent_questions > .elgg-body {
+.elgg-widget-instance-recent_questions .elgg-widget-content {
 	background: #<?php echo COLOR_BLUE;?>;
 	color: white;
 }
 
-.elgg-widget-instance-recent_questions .elgg-icon-round-plus,
-.elgg-widget-instance-recent_questions a {
+.elgg-widget-instance-recent_questions .elgg-widget-content .elgg-icon-round-plus,
+.elgg-widget-instance-recent_questions .elgg-widget-content a {
 	color: white;
 }
 
