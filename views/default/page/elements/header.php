@@ -27,6 +27,7 @@ if (elgg_is_logged_in()) {
 			)),
 			"href" => elgg_get_site_url()
 		));
+		echo "<style type='text/css'>.elgg-page-navbar .elgg-menu-site { left: 250px;}</style>";
 	} else {
 		echo elgg_view("output/url", array(
 			"text" => elgg_view("output/img", array(
