@@ -2,7 +2,7 @@
 
 elgg_set_page_owner_guid(elgg_get_site_entity()->getGUID());
 elgg_push_context("ffd-theme-index");
-if (elgg_is_logged_in()) {
+if (!elgg_in_context("login")) {
 	$body = elgg_view_layout('index_logged_in', array());
 } else {
 	$body = elgg_view_layout('index', array());
