@@ -19,6 +19,11 @@ $english = array(
 	'ffd_theme:widgets:ask_question:description' => "Toont knop om een vraag te stellen",
 	'theme_ffd:questions:add' => "Nieuwe vraag stellen",
 	
+	'theme_ffd:profile:question_stats:count_questions' => "Number of questions asked",
+	'theme_ffd:profile:question_stats:count_answers' => "Number of answers give",
+	'theme_ffd:profile:question_stats:count_correct' => "Correct answers",
+	'theme_ffd:profile:question_stats:count_likes' => "Questions liked",
+	
 	'theme_ffd:entity_view_counter:questions:menu:views' => "bekeken (%d)",
 	'theme_ffd:likes:questions:menu:views' => "geliked (%d)",
 	'theme_ffd:likes:questions:menu' => "liken",
@@ -28,16 +33,16 @@ $english = array(
 	'theme_ffd:answers:questions:menu:views' => "antwoorden (%d)",
 	'theme_ffd:answers:questions:menu' => "antwoord geven",
 
-  'theme_ffd:questions:menu:subscribe' => 'vraag volgen',
-  'theme_ffd:questions:menu:unsubscribe' => 'vraag niet volgen',
+	'theme_ffd:questions:menu:subscribe' => 'vraag volgen',
+	'theme_ffd:questions:menu:unsubscribe' => 'vraag niet volgen',
 
-  'questions:menu:filter:experts' => 'IA-medewerkers',
-  'questions:menu:user_hover:make_expert:confirm' => 'Weet je zeker dat je deze gebruiker een IA-medewerker wilt maken van %s?',
-  'questions:menu:user_hover:make_expert' => 'Maak IA-medewerker',
-  'questions:menu:user_hover:remove_expert' => 'Verwijder IA-medewerker',
-  'questions:menu:user_hover:remove_expert:confirm' => 'Weet je zeker dat je deze gebruiker wilt verwijderen als IA-medewerker van %s?',
-  'questions:experts:title' => 'IA-medewerkers',
-  'questions:experts:none' => 'Er zijn nog geen IA-medewerkers toegekend aan %s.'
+	'questions:menu:filter:experts' => 'IA-medewerkers',
+	'questions:menu:user_hover:make_expert:confirm' => 'Weet je zeker dat je deze gebruiker een IA-medewerker wilt maken van %s?',
+	'questions:menu:user_hover:make_expert' => 'Maak IA-medewerker',
+	'questions:menu:user_hover:remove_expert' => 'Verwijder IA-medewerker',
+	'questions:menu:user_hover:remove_expert:confirm' => 'Weet je zeker dat je deze gebruiker wilt verwijderen als IA-medewerker van %s?',
+	'questions:experts:title' => 'IA-medewerkers',
+	'questions:experts:none' => 'Er zijn nog geen IA-medewerkers toegekend aan %s.'
 );
 
 add_translation("en", $english);

@@ -18,6 +18,11 @@ $dutch = array(
   'ffd_theme:widgets:ask_question:title' => "Stel een vraag",
   'ffd_theme:widgets:ask_question:description' => "Toont knop om een vraag te stellen",
   'theme_ffd:questions:add' => "Nieuwe vraag stellen",
+	
+  'theme_ffd:profile:question_stats:count_questions' => "Aantal vragen gesteld",
+  'theme_ffd:profile:question_stats:count_answers' => "Aantal antwoorden gegeven",
+  'theme_ffd:profile:question_stats:count_correct' => "Aantal juiste antwoorden",
+  'theme_ffd:profile:question_stats:count_likes' => "Aantal vragen geliked",
   
   'theme_ffd:entity_view_counter:questions:menu:views' => "bekeken (%d)",
   'theme_ffd:likes:questions:menu:views' => "geliked (%d)",
