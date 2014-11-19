@@ -44,14 +44,6 @@ $title_icon = "";
 
 $content = elgg_view_entity($question, array('full_view' => true));
 
-$answers = "";
-
-// add the answer marked as the correct answer first
-$marked_answer = $question->getCorrectAnswer();
-if ($marked_answer) {
-	$answers .= elgg_view_entity($marked_answer);
-}
-
 // add the rest of the answers
 $options = array(
 	'type' => 'object',
@@ -59,13 +51,9 @@ $options = array(
 	'container_guid' => $question->guid,
 	'count' => true,
 	'limit' => false,
+	'order_by' => 'e.time_created',
 	'pagination' => false
 );
-
-if ($marked_answer) {
-	// do not include the marked answer as it already  added to the output before
-	$options["wheres"] = array("e.guid <> " . $marked_answer->getGUID());
-}
 
 if (elgg_is_active_plugin("likes")) {
 	// order answers based on likes
@@ -77,15 +65,10 @@ if (elgg_is_active_plugin("likes")) {
 		FROM " . $dbprefix . "annotations a
 		WHERE a.entity_guid = e.guid
 		AND a.name_id = " . $likes_id . ") AS likes_count");
-	$options["order_by"] = "likes_count desc, e.time_created asc";
 }
 
-$answers .= elgg_list_entities($options);
-
+$answers = elgg_list_entities($options);
 $count = elgg_get_entities($options);
-if ($marked_answer) {
-	$count++;
-}
 
 $answer_title = elgg_view_icon("comment-o", "mrs") . $count . " " . elgg_echo('answers');
 $content .= elgg_view_module('info', $answer_title, $answers, array("class" => "mtm ffd-questions-answers"));
