@@ -1,6 +1,6 @@
 <?php
 
-function theme_ffd_index($hook, $type, $return, $params) {
+function theme_ffd_index($hook, $type, $return = false, $params = array()) {
 	include_once(dirname(dirname(__FILE__)) . "/pages/index.php");
 
 	// return true to signify that we have handled the front page
