@@ -35,7 +35,8 @@ function theme_ffd_init() {
 	elgg_register_widget_type("ffd_stats", elgg_echo("ffd_theme:widgets:ffd_stats:title"), elgg_echo("ffd_theme:widgets:ffd_stats:description"), "index");
 	elgg_register_widget_type("recent_questions", elgg_echo("ffd_theme:widgets:recent_questions:title"), elgg_echo("ffd_theme:widgets:recent_questions:description"), "index");
 	elgg_register_widget_type("ask_question", elgg_echo("ffd_theme:widgets:ask_question:title"), elgg_echo("ffd_theme:widgets:ask_question:description"), "index");
-	
+	elgg_register_widget_type("ffd_datetime", elgg_echo("date:month:" . date("m"), array(date("j"))), elgg_echo("ffd_theme:widgets:ffd_datetime:description"), "index");
+
 	// custom translations
 	add_translation(get_current_language(), array(
 		"questions:add" => elgg_echo("theme_ffd:questions:add")

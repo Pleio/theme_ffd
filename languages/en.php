@@ -12,6 +12,7 @@ $english = array(
 	'ffd_theme:widgets:recent_questions:title' => "Meest actuele vragen",
 	'ffd_theme:widgets:recent_questions:description' => "Toont recente vragen",
 	'ffd_theme:widgets:recent_questions:more' => "meer vragen",
+	'ffd_theme:widgets:ffd_datetime:description' => 'Show actual date and own HTML content',
 	'theme_ffd:questions:filter:most_viewed' => "Meest bekeken",
 	'theme_ffd:questions:most_viewed' => "Meest bekeken vragen",
 	'theme_ffd:questions:filter:category' => "Zoek op categorie",
