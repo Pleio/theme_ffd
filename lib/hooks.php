@@ -60,13 +60,24 @@ function theme_ffd_questions_filter_menu_hook_handler($hook, $type, $return_valu
 		);
 		$group_batch = new ElggBatch("elgg_get_entities_from_metadata", $options);
 		foreach ($group_batch as $group) {
-			
-			$return_value[] = ElggMenuItem::factory(array(
-				"name" => "questions-category_" .  $group->getGUID(),
-				"text" => elgg_view_icon("share-square", "mrs") . $group->name,
-				"href" => "questions/group/" . $group->getGUID() . "/all",
-				"parent_name" => "questions-category"
-			));
+			if (elgg_in_context("workflow")) {
+				if (questions_workflow_enabled($group)) {
+					$context = "workflow";
+				} else {
+					$context = false;
+				}
+			} else {
+				$context = "all";
+			}
+
+			if ($context) {
+				$return_value[] = ElggMenuItem::factory(array(
+					"name" => "questions-category_" .  $group->getGUID(),
+					"text" => elgg_view_icon("share-square", "mrs") . $group->name,
+					"href" => "questions/group/" . $group->getGUID() . "/" . $context,
+					"parent_name" => "questions-category"
+				));
+			}
 		}
 	}
 
@@ -91,7 +102,7 @@ function theme_ffd_questions_entity_hook($hook_name, $entity_type, $return_value
 			$return_value[] = ElggMenuItem::factory(array(
 				"name" => "content_subscription",
 				"text" => $text,
-				"href" => $url,
+				"href" => $unsubscriberl,
 				'is_action' => true,
 				"priority" => 90
 			));
