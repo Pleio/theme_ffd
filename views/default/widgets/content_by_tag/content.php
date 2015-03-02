@@ -237,10 +237,29 @@
 	if (empty($result)) {
 		$result = elgg_echo("notfound");
 	} elseif ($widget->show_search_link == "yes" && !empty($widget->tags) && elgg_is_active_plugin("search")) {
-		$tags = string_to_tag_array($widget->tags);
-		$tag = $tags[0];
-		$result .= "<div class='elgg-widget-more'>" . elgg_view("output/url", array("text" => elgg_echo("searchtitle", array($tag)), "href" => "search?entity_subtype=" . $content_type[0] . "&entity_type=object&search_type=entities&q=" . $tag)) . "</div>";
+		$tags = $widget->tags;
+		
+		if (elgg_is_active_plugin("search_advanced")) {
+			$tags_text = $tags;
+		} else {
+			$tags = string_to_tag_array($tags);
+			$tags_text = $tags[0];
+		}
+		
+		$search_postfix = "";
+		if (count($content_type) == 1) {
+			$search_postfix = "&entity_subtype=" . $content_type[0] . "&entity_type=object&search_type=entities";
+		}
+		
+		if ($widget->search_link_text) {
+			$search_text = $widget->search_link_text;
+		} else {
+			$search_text = elgg_echo("searchtitle", array($tags_text));
+		}
+		
+		$result .= "<div class='elgg-widget-more'>" . elgg_view("output/url", array("text" => $search_text, "href" => "search?q=" . $tags_text . $search_postfix)) . "</div>";
 	}
+
 	echo $result;
 
 	elgg_pop_context();

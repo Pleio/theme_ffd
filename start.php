@@ -17,7 +17,8 @@ function theme_ffd_init() {
 	elgg_unextend_view("page/elements/header", "search/header");
 	
 	elgg_extend_view("css/elgg", "css/theme_ffd/site");
-	
+	elgg_extend_view('js/elgg', 'theme_ffd/js/site');
+
 	// Replace the default index page
 	elgg_register_plugin_hook_handler("index", "system", "theme_ffd_index");
 	
@@ -36,6 +37,7 @@ function theme_ffd_init() {
 	elgg_register_widget_type("recent_questions", elgg_echo("ffd_theme:widgets:recent_questions:title"), elgg_echo("ffd_theme:widgets:recent_questions:description"), "index");
 	elgg_register_widget_type("ask_question", elgg_echo("ffd_theme:widgets:ask_question:title"), elgg_echo("ffd_theme:widgets:ask_question:description"), "index");
 	elgg_register_widget_type("ffd_datetime", elgg_echo("date:month:" . date("m"), array(date("j"))), elgg_echo("ffd_theme:widgets:ffd_datetime:description"), "index");
+	elgg_register_widget_type("ffd_videos", elgg_echo("ffd_theme:widgets:ffd_videos:title"), elgg_echo("ffd_theme:widgets:ffd_videos:description"), "index");
 
 	// custom translations
 	add_translation(get_current_language(), array(

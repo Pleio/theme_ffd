@@ -14,8 +14,8 @@ if ($questions) {
 		echo elgg_view_icon("round-plus");
 		
 		echo elgg_view("output/url", array(
-			"text" => elgg_get_excerpt($question->title, 30),
-			"href" => $question->getURL()		
+			"text" => elgg_get_excerpt($question->title, 37),
+			"href" => $question->getURL()
 		));
 		
 		echo  " ";
