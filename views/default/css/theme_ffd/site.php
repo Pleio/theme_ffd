@@ -335,6 +335,24 @@ li.elgg-menu-item-access {
 	color: white;
 }
 
+.elgg-widget-instance-recent_questions .question {
+	display: block;
+	height: 20px;
+	width: 100%;
+}
+
+.elgg-widget-instance-recent_questions .question-title {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	float: left;
+	width: 250px;
+}
+
+.elgg-widget-instance-recent_questions .question-date {
+	float: right;
+}
+
 .elgg-widget-instance-search .elgg-input-text {
 	width: 90%;
 	background: transparent url(<?php echo elgg_get_site_url(); ?>_graphics/elgg_sprites.png) no-repeat 2px -934px !important;
