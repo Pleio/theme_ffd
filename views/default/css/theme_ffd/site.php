@@ -342,7 +342,7 @@ li.elgg-menu-item-access {
 }
 
 .elgg-widget-instance-recent_questions .question-title {
-	width: 250px;
+	width: 260px;
 	white-space: nowrap !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -351,7 +351,7 @@ li.elgg-menu-item-access {
 }
 
 .elgg-widget-instance-recent_questions .question-date {
-	float: right;
+	float: left;
 }
 
 .elgg-widget-instance-search .elgg-input-text {
