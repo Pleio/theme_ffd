@@ -257,6 +257,7 @@ form.elgg-search {
 }
 
 .elgg-widget-more {
+	clear: both;
 	display: block;
 	text-align: right;
 }
