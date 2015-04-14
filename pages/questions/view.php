@@ -84,8 +84,15 @@ if (($question->getStatus() == "open") && $question->canWriteToContainer(0, 'obj
 	$title_icon = elgg_view_icon("lock-closed");
 }
 
+// switch to go from frontend to backend
+if (questions_workflow_enabled() && questions_is_expert()) {
+  $overview = elgg_view('questions/overview', array('question'=>$question));
+} else {
+  $overview = "";
+}
+
 $body = elgg_view_layout('content', array(
-	'content' => $content,
+	'content' => $overview . $content,
 	'filter' => '',
 ));
 
