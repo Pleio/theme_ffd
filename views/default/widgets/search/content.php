@@ -42,7 +42,18 @@ if(!empty($type)){
 
 $form_body .= elgg_view("input/submit", array("value" => elgg_echo("search"), "class" => "hidden"));
 
-$form = elgg_view("input/form", array("body" => $form_body, "action" => "/search", "disable_security" => true, "class" => "search-advanced-widget-search-form"));
+$form_options = array(
+	"body" => $form_body, 
+	"action" => "/search",
+	"disable_security" => true, 
+	"class" => "search-advanced-widget-search-form"
+);
+
+if ($widget->submit_behaviour == "go_to_search") {
+	unset($form_options["class"]);
+}
+
+$form = elgg_view("input/form", $form_options);
 
 echo $form;
 

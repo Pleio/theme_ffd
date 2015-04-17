@@ -17,6 +17,8 @@ function theme_ffd_init() {
 	elgg_unextend_view("page/elements/header", "search/header");
 	
 	elgg_extend_view("css/elgg", "css/theme_ffd/site");
+	elgg_extend_view("css/elgg", "css/theme_ffd/custom_css");
+
 	elgg_extend_view('js/elgg', 'theme_ffd/js/site');
 
 	// Replace the default index page
