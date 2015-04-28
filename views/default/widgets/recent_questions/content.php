@@ -10,16 +10,20 @@ $options = array(
 $questions = elgg_get_entities($options);
 if ($questions) {
 	foreach ($questions as $question) {
-		echo "<div>";
-		echo elgg_view_icon("round-plus");
-		
-		echo elgg_view("output/url", array(
-			"text" => elgg_get_excerpt($question->title, 30),
-			"href" => $question->getURL()		
-		));
-		
-		echo  " ";
-		echo "<i>" . strftime("%e %b", $question->time_created) . "</i>";
+		echo "<div class=\"question\">";
+			echo "<div class=\"question-title\">";
+				echo elgg_view_icon("round-plus");
+				
+				echo elgg_view("output/url", array(
+					"text" => $question->title,
+					"href" => $question->getURL()
+				));
+			echo "</div>";
+
+			echo "<div class=\"question-date\">";
+				echo  " ";
+				echo "<i>" . strftime("%e %b", $question->time_created) . "</i>";
+			echo "</div>";
 		echo "</div>";
 	}
 }
