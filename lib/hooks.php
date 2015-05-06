@@ -102,7 +102,7 @@ function theme_ffd_questions_entity_hook($hook_name, $entity_type, $return_value
 			$return_value[] = ElggMenuItem::factory(array(
 				"name" => "content_subscription",
 				"text" => $text,
-				"href" => $unsubscriberl,
+				"href" => $url,
 				'is_action' => true,
 				"priority" => 90
 			));

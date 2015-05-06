@@ -16,7 +16,7 @@ if (empty($question)) {
 }
 
 // make sure we have a question
-if (!elgg_instanceof($question, "object", "question")) {
+if (empty($question) || !elgg_instanceof($question, "object", "question")) {
 	register_error(elgg_echo("ClassException:ClassnameNotClass", array($guid, elgg_echo("item:object:question"))));
 	forward(REFERER);
 }
