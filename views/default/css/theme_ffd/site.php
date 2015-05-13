@@ -343,7 +343,7 @@ li.elgg-menu-item-access {
 }
 
 .elgg-widget-instance-recent_questions .question-title {
-	width: 260px;
+	width: 250px;
 	white-space: nowrap !important;
 	overflow: hidden;
 	text-overflow: ellipsis;
