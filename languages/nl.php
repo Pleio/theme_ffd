@@ -40,6 +40,13 @@ $dutch = array(
   'theme_ffd:questions:menu:subscribe' => 'vraag volgen',
   'theme_ffd:questions:menu:unsubscribe' => 'vraag niet volgen',
 
+  'theme_ffd:cafe' => 'Café',
+  'theme_ffd:cafe:purpose:search' => 'Ik zoek',
+  'theme_ffd:cafe:purpose:share' => 'Ik deel met u nieuws over',
+  'theme_ffd:cafe:purpose:experience' => 'Wie heeft er ervaring met',
+  'theme_ffd:cafe:publish' => 'Plaats',
+  'theme_ffd:cafe:placed_by' => 'Geplaatst door',
+
   'questions:edit:question:title' => 'Titel van de vraag',
   'questions:edit:question:description' => 'Stel uw vraag',
   'questions:menu:filter:experts' => 'IA-medewerkers',

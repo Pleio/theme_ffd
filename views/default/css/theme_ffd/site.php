@@ -536,6 +536,10 @@ li.elgg-menu-item-questions-category {
 	margin: 0;
 }
 
+.elgg-form-theme-ffd-cafe .elgg-input-text { 
+    width: 400px;
+}
+
 /** Responsive **/
 @media (max-width: 1120px) {
 	#theme-ffd-header-speech-bubble {

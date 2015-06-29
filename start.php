@@ -31,8 +31,17 @@ function theme_ffd_init() {
 	
 	// pagehandlers
 	elgg_register_page_handler("profile", "theme_ffd_profile_page_handler");
+	elgg_register_page_handler("cafe", "theme_ffd_cafe_page_handler");
 	elgg_register_page_handler("login", "theme_ffd_index");
+
+	// actions
+	$actions_base = dirname(__FILE__) . "/actions/cafe";
+	elgg_register_action("cafe/save", "$actions_base/save.php");
+	elgg_register_action("cafe/delete", "$actions_base/delete.php");
 	
+	// register objects
+	elgg_register_entity_type("object", "cafe");
+
 	//add a widget
 	elgg_register_widget_type("ffd_stats", elgg_echo("ffd_theme:widgets:ffd_stats:title"), elgg_echo("ffd_theme:widgets:ffd_stats:description"), "index");
 	elgg_register_widget_type("recent_questions", elgg_echo("ffd_theme:widgets:recent_questions:title"), elgg_echo("ffd_theme:widgets:recent_questions:description"), "index");
@@ -87,3 +96,25 @@ function theme_ffd_profile_page_handler($page) {
 	echo elgg_view_page($user->name, $body);
 	return true;
 }
+
+/**
+ * Profile page handler
+ *
+ * @param array $page Array of URL segments passed by the page handling mechanism
+ * @return bool
+ */
+ function theme_ffd_cafe_page_handler($segments) {
+
+ 	switch($segments[0]) {
+ 		case "edit":
+ 			set_input('guid', $segments[1]);
+ 			include(dirname(__FILE__) . "/pages/cafe/edit.php"); 
+ 			break;
+ 		default:
+ 			elgg_extend_view("page/elements/sidebar", "page/cafe/sidebar");
+			include(dirname(__FILE__) . "/pages/cafe/overview.php"); 
+			break;
+ 	}
+
+ 	return true;
+ }

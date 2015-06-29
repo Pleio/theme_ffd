@@ -40,6 +40,13 @@ $english = array(
 	'theme_ffd:questions:menu:subscribe' => 'vraag volgen',
 	'theme_ffd:questions:menu:unsubscribe' => 'vraag niet volgen',
 
+	'theme_ffd:cafe' => 'Café',
+	'theme_ffd:cafe:purpose:search' => 'I am looking for',
+	'theme_ffd:cafe:purpose:share' => 'I share news about',
+	'theme_ffd:cafe:purpose:experience' => 'Who has experience with',
+	'theme_ffd:cafe:publish' => 'Publish',
+	'theme_ffd:cafe:placed_by' => 'Placed by',
+
 	'questions:menu:filter:experts' => 'IA-medewerkers',
 	'questions:menu:user_hover:make_expert:confirm' => 'Weet je zeker dat je deze gebruiker een IA-medewerker wilt maken van %s?',
 	'questions:menu:user_hover:make_expert' => 'Maak IA-medewerker',
