@@ -46,6 +46,7 @@ $dutch = array(
   'theme_ffd:cafe:purpose:experience' => 'Wie heeft er ervaring met',
   'theme_ffd:cafe:publish' => 'Plaats',
   'theme_ffd:cafe:placed_by' => 'Geplaatst door',
+  'theme_ffd:cafe:no_short_description' => 'Geen beschrijving gegeven.',
 
   'questions:edit:question:title' => 'Titel van de vraag',
   'questions:edit:question:description' => 'Stel uw vraag',

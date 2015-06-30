@@ -540,6 +540,36 @@ li.elgg-menu-item-questions-category {
     width: 400px;
 }
 
+.theme-ffd-cafe-profile-owner-block {
+	padding-top: 10px;
+}
+
+.theme-ffd-cafe-profile-owner-block > .theme-ffd-profile-icon { 
+	text-align: center;
+}
+
+.theme-ffd-cafe-profile-owner-block > ul > li {
+	text-align: center;
+	background: #8fcae7;
+	margin-top: 5px;
+	padding: 5px;
+}
+
+.theme-ffd-cafe-profile-owner-block > ul > li a {
+	color: white;
+}
+
+.theme-ffd-cafe-profile-owner-block > .theme-ffd-profile-owner-short-description {
+	margin-top: 10px;
+
+}
+
+.theme-ffd-search-users {
+	margin-top: 10px;
+	width: 100%;
+	border: 1px solid black;
+}
+
 /** Responsive **/
 @media (max-width: 1120px) {
 	#theme-ffd-header-speech-bubble {

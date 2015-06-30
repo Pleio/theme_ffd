@@ -46,6 +46,7 @@ $english = array(
 	'theme_ffd:cafe:purpose:experience' => 'Who has experience with',
 	'theme_ffd:cafe:publish' => 'Publish',
 	'theme_ffd:cafe:placed_by' => 'Placed by',
+	'theme_ffd:cafe:no_short_description' => 'No description given.',
 
 	'questions:menu:filter:experts' => 'IA-medewerkers',
 	'questions:menu:user_hover:make_expert:confirm' => 'Weet je zeker dat je deze gebruiker een IA-medewerker wilt maken van %s?',
