@@ -78,7 +78,7 @@ $answers = elgg_list_entities($options);
 $count = elgg_get_entities($options);
 
 $answer_title = elgg_view_icon("comment-o", "mrs") . $count . " " . elgg_echo('answers');
-$content .= elgg_view_module('info', $answer_title, $answers, array("class" => "mtm ffd-questions-answers"));
+$content .= elgg_view_module('info', $answer_title, $answers, array("class" => "mtm ffd-answers"));
 
 // add answer form
 if (($question->getStatus() == "open") && $question->canWriteToContainer(0, 'object', 'answer')) {

@@ -8,17 +8,16 @@
 // make the logged in user page owner, specially due to the profile items in the sidebar
 elgg_set_page_owner_guid(elgg_get_logged_in_user_guid());
 
-$output = elgg_view_form('theme_ffd/cafe', 
-    array(
-        'name' => 'cafe',
-        'action' => 'action/cafe/save'
-    )
+$output = elgg_view_form('theme_ffd/cafe', array(
+    'name' => 'cafe',
+    'action' => 'action/cafe/save'
+    ), array('collapsable' => true)
 );
 
 $options = array(
     'type' => 'object',
     'subtype' => 'cafe',
-    'full_view' => true
+    'full_view' => false
 );
 $output .= elgg_list_entities($options);
 

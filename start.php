@@ -9,6 +9,7 @@ define("COLOR_BLUE_LIGHT", "ddeff8"); // BD2
 define("COLOR_GREY_LIGHT", "8c8b8b");
 define("COLOR_GREY_DARK", "4c4c4c");
 
+require_once(dirname(__FILE__) . "/lib/functions.php");
 require_once(dirname(__FILE__) . "/lib/hooks.php");
 
 elgg_register_event_handler("init", "system", "theme_ffd_init");
@@ -38,9 +39,12 @@ function theme_ffd_init() {
 	$actions_base = dirname(__FILE__) . "/actions/cafe";
 	elgg_register_action("cafe/save", "$actions_base/save.php");
 	elgg_register_action("cafe/delete", "$actions_base/delete.php");
+	elgg_register_action("cafe/reply/save", "$actions_base/reply/save.php");
+	elgg_register_action("cafe/reply/delete", "$actions_base/reply/delete.php");
 	
 	// register objects
 	elgg_register_entity_type("object", "cafe");
+	elgg_register_entity_url_handler("object", "cafe", "theme_ffd_cafe_url");	
 
 	//add a widget
 	elgg_register_widget_type("ffd_stats", elgg_echo("ffd_theme:widgets:ffd_stats:title"), elgg_echo("ffd_theme:widgets:ffd_stats:description"), "index");
@@ -104,17 +108,27 @@ function theme_ffd_profile_page_handler($page) {
  * @return bool
  */
  function theme_ffd_cafe_page_handler($segments) {
+	elgg_push_breadcrumb(elgg_echo('theme_ffd:cafe'), "cafe");
+	elgg_extend_view("page/elements/sidebar", "page/cafe/sidebar");
 
- 	switch($segments[0]) {
- 		case "edit":
- 			set_input('guid', $segments[1]);
- 			include(dirname(__FILE__) . "/pages/cafe/edit.php"); 
- 			break;
- 		default:
- 			elgg_extend_view("page/elements/sidebar", "page/cafe/sidebar");
+	switch($segments[0]) {
+		case "view":
+			set_input('guid', $segments[1]);
+			include(dirname(__FILE__) . "/pages/cafe/view.php"); 
+			break;
+		case "edit":
+			set_input('guid', $segments[1]);
+			include(dirname(__FILE__) . "/pages/cafe/edit.php"); 
+			break;
+		default:
 			include(dirname(__FILE__) . "/pages/cafe/overview.php"); 
 			break;
- 	}
+	}
 
  	return true;
+ }
+
+
+ function theme_ffd_cafe_url($cafe) {
+ 	return "cafe/view/" . $cafe->guid . "/" . elgg_get_friendly_title($cafe->title);
  }

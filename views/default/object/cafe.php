@@ -10,13 +10,7 @@ $poster_text = elgg_echo("theme_ffd:cafe:placed_by") . "&nbsp;" . $poster_link;
 
 $date = elgg_view_friendly_time($cafe->time_created);
 
-$params = array(
-    "entity" => $cafe,
-    "title" => elgg_echo("theme_ffd:cafe:purpose:" . $cafe->purpose) . "&nbsp;" . $cafe->title,
-    "subtitle" => "$poster_text $date",
-    "tags" => elgg_view("output/tags", array("tags" => $question->tags)),
-    "content" => $cafe->description
-);
+$params = array();
 
 if ($full) {
     $entity_menu = elgg_view_menu('entity', array(
@@ -27,7 +21,20 @@ if ($full) {
     ));
 
     $params['metadata'] = $entity_menu;
-} 
+    $params['title'] = elgg_echo("theme_ffd:cafe:purpose:" . $cafe->purpose) . "&nbsp;" . $cafe->title;    
+} else {
+    $params['title'] = elgg_view('output/url', array(
+        'href' => $cafe->getURL(),
+        'text' => elgg_echo("theme_ffd:cafe:purpose:" . $cafe->purpose) . "&nbsp;" . $cafe->title
+    ));
+}
+
+$params = array_merge($params, array(
+    "entity" => $cafe,
+    "subtitle" => "$poster_text $date",
+    "tags" => elgg_view("output/tags", array("tags" => $question->tags)),
+    "content" => $cafe->description
+));
 
 $list_body = elgg_view("object/elements/summary", $params);
 

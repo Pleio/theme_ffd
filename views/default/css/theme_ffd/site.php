@@ -5,6 +5,10 @@ span.question-workflow-status {
 	color: blue;
 }
 
+.elgg-button {
+	padding: 5px 6px;
+}
+
 .elgg-page-navbar .elgg-menu-site {
 	left: 110px;
 	z-index: 2;
@@ -521,7 +525,7 @@ li.elgg-menu-item-questions-category {
 	text-decoration: none;
 }
 
-.ffd-questions-answers > .elgg-head {
+.ffd-answers > .elgg-head {
 	background: white;
 	border-bottom: 1px solid black;
 	border-radius: 0;
@@ -560,14 +564,40 @@ li.elgg-menu-item-questions-category {
 }
 
 .theme-ffd-cafe-profile-owner-block > .theme-ffd-profile-owner-short-description {
-	margin-top: 10px;
+	margin-top: 20px;
 
 }
 
+.theme-ffd-collapsable {
+	display: none;
+}
+
+.theme-ffd-top-button {
+	text-align: right;
+}
+
+.theme-ffd-top-button .elgg-icon {
+	color: white;
+}
+
+.theme-ffd-buttons {
+	padding-top:10px;
+}
+
 .theme-ffd-search-users {
-	margin-top: 10px;
+	margin-top: 20px;
 	width: 100%;
 	border: 1px solid black;
+}
+
+.theme-ffd-top10 {
+	border: 1px solid black;
+	padding: 5px;
+	margin-top: 20px;
+}
+
+.theme-ffd-top10 a {
+	font-size: 14px;
 }
 
 /** Responsive **/

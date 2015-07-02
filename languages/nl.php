@@ -40,13 +40,18 @@ $dutch = array(
   'theme_ffd:questions:menu:subscribe' => 'vraag volgen',
   'theme_ffd:questions:menu:unsubscribe' => 'vraag niet volgen',
 
+  'item:object:cafe' => 'Cafébericht',
   'theme_ffd:cafe' => 'Café',
   'theme_ffd:cafe:purpose:search' => 'Ik zoek',
   'theme_ffd:cafe:purpose:share' => 'Ik deel met u nieuws over',
   'theme_ffd:cafe:purpose:experience' => 'Wie heeft er ervaring met',
   'theme_ffd:cafe:publish' => 'Plaats',
+  'theme_ffd:cafe:publish_message' => 'Plaats bericht',
+  'theme_ffd:cafe:cancel' => 'Annuleer',
   'theme_ffd:cafe:placed_by' => 'Geplaatst door',
   'theme_ffd:cafe:no_short_description' => 'Geen beschrijving gegeven.',
+  'theme_ffd:top10' => 'Top 10 meest gewaardeerde gebruikers',
+  'theme_ffd:cafe:reply' => 'Reageer op bericht',
 
   'questions:edit:question:title' => 'Titel van de vraag',
   'questions:edit:question:description' => 'Stel uw vraag',

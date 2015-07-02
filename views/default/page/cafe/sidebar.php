@@ -44,4 +44,14 @@
         "href" => "members/all"
     ));
     ?>
+
+    <div class="theme-ffd-top10">
+        <b><?php echo elgg_echo("theme_ffd:top10"); ?></b>
+        <?php 
+            foreach (theme_ffd_fivestar_get_top_users() as $user) {
+                    echo elgg_view("theme_ffd/profile/item_cafe", array('entity' => $user));
+            }
+        ?>
+    </div>
+
 </div>

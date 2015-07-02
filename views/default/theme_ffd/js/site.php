@@ -3,6 +3,13 @@
 elgg.provide('elgg.theme_ffd');
 
 elgg.theme_ffd.init = function() {
+    $('.theme-ffd-collapse-control').live('click', function() {
+        event.preventDefault();
+
+        $('.theme-ffd-collapse-control').toggle();
+        $('.theme-ffd-collapsable').toggle(400);
+    });
+
     $('.ffd-widget-videos .elgg-list a').live('click', function() {
         event.preventDefault();
 
@@ -15,6 +22,7 @@ elgg.theme_ffd.init = function() {
             }
         });
     });
+
 };
 
 elgg.register_hook_handler('init', 'system', elgg.theme_ffd.init);
