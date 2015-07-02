@@ -21,4 +21,4 @@ try {
     register_error($e->getMessage());
 }
 
-forward(REFERER);
+forward('cafe');
