@@ -38,7 +38,6 @@ $description = get_input("description");
 $purpose = get_input("purpose");
 
 $tags = string_to_tag_array(get_input("tags", ""));
-$access_id = (int) get_input("access_id");
 
 if (empty($container_guid) || empty($title) || empty($description) || empty($purpose)) {
     register_error(elgg_echo("theme_ffd:action:cafe:save:missing"));
@@ -50,7 +49,7 @@ $cafe->description = $description;
 $cafe->purpose = $purpose;
 
 $cafe->tags = $tags;
-$cafe->access_id = $access_id;
+$cafe->access_id = get_default_access();
 $cafe->container_guid = $container_guid;
 
 try {

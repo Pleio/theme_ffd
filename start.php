@@ -112,9 +112,9 @@ function theme_ffd_profile_page_handler($page) {
 	elgg_extend_view("page/elements/sidebar", "page/cafe/sidebar");
 
 	switch($segments[0]) {
-		case "view":
+		case "detail":
 			set_input('guid', $segments[1]);
-			include(dirname(__FILE__) . "/pages/cafe/view.php"); 
+			include(dirname(__FILE__) . "/pages/cafe/detail.php"); 
 			break;
 		case "edit":
 			set_input('guid', $segments[1]);
@@ -130,5 +130,5 @@ function theme_ffd_profile_page_handler($page) {
 
 
  function theme_ffd_cafe_url($cafe) {
- 	return "cafe/view/" . $cafe->guid . "/" . elgg_get_friendly_title($cafe->title);
+ 	return "cafe/detail/" . $cafe->guid . "/" . elgg_get_friendly_title($cafe->title);
  }

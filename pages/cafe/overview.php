@@ -5,9 +5,6 @@
  * @package theme_ffd
  */
 
-// make the logged in user page owner, specially due to the profile items in the sidebar
-elgg_set_page_owner_guid(elgg_get_logged_in_user_guid());
-
 $output = elgg_view_form('theme_ffd/cafe', array(
     'name' => 'cafe',
     'action' => 'action/cafe/save'
