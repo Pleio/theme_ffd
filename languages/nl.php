@@ -42,7 +42,10 @@ $dutch = array(
 
   'item:object:cafe' => 'Cafébericht',
   'theme_ffd:cafe' => 'Café',
+  'theme_ffd:cafe:title' => 'Titel van het bericht',
+  'theme_ffd:cafe:description' => 'Bericht',
   'theme_ffd:cafe:purpose:search' => 'Ik zoek',
+  'theme_ffd:cafe:searchmembers' => 'Zoek Forumgebruikers',
   'theme_ffd:cafe:purpose:share' => 'Ik deel met u nieuws over',
   'theme_ffd:cafe:purpose:experience' => 'Wie heeft er ervaring met',
   'theme_ffd:cafe:publish' => 'Plaats',
@@ -52,6 +55,12 @@ $dutch = array(
   'theme_ffd:cafe:no_short_description' => 'Geen beschrijving gegeven.',
   'theme_ffd:top10' => 'Top 10 meest gewaardeerde gebruikers',
   'theme_ffd:cafe:reply' => 'Reageer op bericht',
+  'theme_ffd:cafe:notsaved' => 'Het bericht kon niet opgeslagen worden.',
+  'theme_ffd:cafe:notdeleted' => 'Het bericht kon niet verwijderd worden.',
+  'theme_ffd:cafe:saved' => 'Het bericht is opgeslagen.',
+  'theme_ffd:cafe:deleted' => 'Het bericht is opgeslagen.',
+  'theme_ffd:cafe:nopermissions' => 'Geen rechten om dit bericht te wijzigen.',
+  'theme_ffd:cafe:fieldsmissing' => 'Verplichte velden zijn niet ingevuld.',
 
   'questions:edit:question:title' => 'Titel van de vraag',
   'questions:edit:question:description' => 'Stel uw vraag',

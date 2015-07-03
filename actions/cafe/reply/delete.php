@@ -14,7 +14,9 @@ if (!$reply->canEdit()) {
 }
 
 $result = $reply->delete();
-if (!$result) {
+if ($result) {
+    system_message(elgg_echo("theme_ffd:cafe:deleted"));
+} else {
     register_error(elgg_echo('theme_ffd:cafe:notdeleted'));
 }
 

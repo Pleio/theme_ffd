@@ -33,17 +33,19 @@
         <?php endif ?><br />
     </div>
 
-    <?php
-    $image = elgg_view("output/img", array(
-            "src" => THEME_GRAPHICS . "search-users.png",
-            "class" => "theme-ffd-search-users"
-    ));
+    <div class="theme-ffd-search-users">
+        <?php
+        $text = elgg_view("output/img", array(
+                "src" => THEME_GRAPHICS . "users.png"
+        ));
+        $text .= "<span>" . elgg_echo("theme_ffd:cafe:searchmembers") . "</span>";
 
-    echo elgg_view("output/url", array(
-        "text" => $image,
-        "href" => "members/all"
-    ));
-    ?>
+        echo elgg_view("output/url", array(
+            "text" => $text,
+            "href" => "members/all"
+        ));
+        ?>
+    </div>
 
     <div class="theme-ffd-top10">
         <b><?php echo elgg_echo("theme_ffd:top10"); ?></b>

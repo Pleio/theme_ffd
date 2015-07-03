@@ -23,8 +23,10 @@ if ($cafe) {
     </div>
 <?php endif ?>
 
-<div <?php if ($collapsable) { echo "class=\"theme-ffd-collapsable\""; } ?>>
+<?php if ($collapsable): ?><div class="theme-ffd-collapsable"><?php endif ?>
     <div>
+        <label for="title"><?php echo elgg_echo("theme_ffd:cafe:title"); ?></label>
+        <div>
         <?php echo elgg_view('input/dropdown', array(
             'name' => 'purpose',
             'options_values' => array(
@@ -39,18 +41,30 @@ if ($cafe) {
         <?php echo elgg_view('input/text', array(
             'name' => 'title',
             'class' => 'elgg-autofocus',
+            'maxlength' => '60',
             'value' => elgg_get_sticky_value('cafe', 'title', $cafe->title)
         ));
         ?>
+        </div>
     </div>
 
     <div>
+        <label for="description"><?php echo elgg_echo("theme_ffd:cafe:description"); ?></label>
         <?php echo elgg_view('input/longtext', array(
             'name' => 'description',
             'value' => elgg_get_sticky_value('cafe', 'description', $cafe->description)
         ));
         ?>
     </div>
+
+    <div>
+        <label for="tags"><?php echo elgg_echo("tags"); ?></label>
+        <?php echo elgg_view('input/tags', array(
+            'name' => 'tags',
+            'value' => elgg_get_sticky_value('cafe', 'tags', $cafe->tags)
+        ));
+        ?>
+    </div>    
         
     <div class="theme-ffd-buttons">
         <?php
@@ -66,4 +80,4 @@ if ($cafe) {
             ));
         ?>
     </div>
-</div>
+<?php if ($collapsable): ?></div><?php endif ?>

@@ -7,10 +7,6 @@
 if (elgg_is_logged_in()) {
 	echo elgg_view('page/elements/header_logo', $vars);
 
-	echo elgg_view("output/img", array(
-		"src" => THEME_GRAPHICS . "pilot.png",
-		"id" => "theme-ffd-header-pilot"
-	));
 	echo elgg_view("output/url", array(
 		"text" => elgg_view("output/img", array(
 			"src" => THEME_GRAPHICS . "speech_bubble.png",

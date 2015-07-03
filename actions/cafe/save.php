@@ -15,7 +15,7 @@ if (!$cafe instanceof ElggCafe) {
 }
 
 if ($editing && !$cafe->canEdit()) {
-    register_error(elgg_echo("InvalidParameterException:NoEntityFound"));
+    register_error(elgg_echo("theme_ffd:cafe:nopermissions"));
     forward(REFERER);
 }
 
@@ -29,7 +29,7 @@ if ($editing && ($container_guid != $cafe->getContainerGUID())) {
 }
 
 if ($adding && !can_write_to_container(0, $container_guid, "object", "cafe")) {
-    register_error(elgg_echo("questions:action:question:save:error:container"));
+    register_error(elgg_echo("theme_ffd:cafe:nopermissions"));
     forward(REFERER);
 }
 
@@ -39,8 +39,12 @@ $purpose = get_input("purpose");
 
 $tags = string_to_tag_array(get_input("tags", ""));
 
+if (strlen($title) > 60) {
+    $title = substr($title,0,60);
+}
+
 if (empty($container_guid) || empty($title) || empty($description) || empty($purpose)) {
-    register_error(elgg_echo("theme_ffd:action:cafe:save:missing"));
+    register_error(elgg_echo("theme_ffd:cafe:fieldsmissing"));
     forward(REFERER);
 }
 
@@ -52,12 +56,13 @@ $cafe->tags = $tags;
 $cafe->access_id = get_default_access();
 $cafe->container_guid = $container_guid;
 
-try {
-    $cafe->save();
+$result = $cafe->save();
+
+if ($result) {
+    system_message(elgg_echo("theme_ffd:cafe:saved"));
     elgg_clear_sticky_form("cafe");
-} catch (Exception $e) {
-    register_error(elgg_echo("theme_ffd:action:cafe:save:error"));
-    register_error($e->getMessage());
+} else {
+    register_error(elgg_echo("theme_ffd:cafe:notsaved"));
 }
 
 forward('/cafe');

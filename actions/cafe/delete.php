@@ -9,16 +9,15 @@ if (!$cafe instanceof ElggCafe) {
 }
 
 if (!$cafe->canEdit()) {
-    register_error(elgg_echo("InvalidParameterException:NoEntityFound"));
+    register_error(elgg_echo("theme_ffd:cafe:nopermissions"));
     forward(REFERER);
 }
 
-try {
-    $cafe->delete();
-    system_message(elgg_echo("entity:delete:success", array($cafe->guid)));
-} catch (Exception $e) {
-    register_error(elgg_echo("entity:delete:fail", array($cafe->guid)));
-    register_error($e->getMessage());
+$result = $cafe->delete();
+if ($result) {
+    system_message(elgg_echo("theme_ffd:cafe:deleted"));
+} else {
+    register_error(elgg_echo("theme_ffd:cafe:notdeleted"));
 }
 
 forward('cafe');

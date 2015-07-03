@@ -42,6 +42,9 @@ $english = array(
 
 	'item:object:cafe' => 'Café message',
 	'theme_ffd:cafe' => 'Café',
+	'theme_ffd:cafe:title' => 'Message title',
+	'theme_ffd:cafe:description' => 'Message',
+	'theme_ffd:cafe:searchmembers' => 'Search forum members',
 	'theme_ffd:cafe:purpose:search' => 'I am looking for',
 	'theme_ffd:cafe:purpose:share' => 'I share news about',
 	'theme_ffd:cafe:purpose:experience' => 'Who has experience with',
@@ -52,6 +55,12 @@ $english = array(
 	'theme_ffd:cafe:no_short_description' => 'No description given.',
 	'theme_ffd:top10' => 'Top 10 most valued users',
 	'theme_ffd:cafe:reply' => 'Reply to message',
+	'theme_ffd:cafe:notsaved' => 'The message could not be saved.',
+	'theme_ffd:cafe:notdeleted' => 'The message could not be deleted.',
+	'theme_ffd:cafe:deleted' => 'The message is deleted.',
+	'theme_ffd:cafe:saved' => 'The message is saved.',
+	'theme_ffd:cafe:nopermissions' => 'No permissions to edit the message.',
+	'theme_ffd:cafe:fieldsmissing' => 'Some required fields are missing.',
 
 	'questions:menu:filter:experts' => 'IA-medewerkers',
 	'questions:menu:user_hover:make_expert:confirm' => 'Weet je zeker dat je deze gebruiker een IA-medewerker wilt maken van %s?',

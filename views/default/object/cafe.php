@@ -21,19 +21,20 @@ if ($full) {
     ));
 
     $params['metadata'] = $entity_menu;
-    $params['title'] = elgg_echo("theme_ffd:cafe:purpose:" . $cafe->purpose) . "&nbsp;" . $cafe->title;    
+    $params['title'] = elgg_echo("theme_ffd:cafe:purpose:" . $cafe->purpose) . "&nbsp;" . $cafe->title;
+    $params['content'] = $cafe->description;
 } else {
     $params['title'] = elgg_view('output/url', array(
         'href' => $cafe->getURL(),
         'text' => elgg_echo("theme_ffd:cafe:purpose:" . $cafe->purpose) . "&nbsp;" . $cafe->title
     ));
+    $params['content'] = elgg_get_excerpt($cafe->description);
 }
 
 $params = array_merge($params, array(
     "entity" => $cafe,
     "subtitle" => "$poster_text $date",
-    "tags" => elgg_view("output/tags", array("tags" => $question->tags)),
-    "content" => $cafe->description
+    "tags" => elgg_view("output/tags", array("tags" => $question->tags))
 ));
 
 $list_body = elgg_view("object/elements/summary", $params);
