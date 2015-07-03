@@ -61,6 +61,11 @@ $english = array(
 	'theme_ffd:cafe:saved' => 'The message is saved.',
 	'theme_ffd:cafe:nopermissions' => 'No permissions to edit the message.',
 	'theme_ffd:cafe:fieldsmissing' => 'Some required fields are missing.',
+	'theme_ffd:cafe:notify:subject' => 'A new reply was posted on: %s',
+	'theme_ffd:cafe:notify:message' => 'A new reply was posted on %s.
+
+To view the response, visit:
+%s',
 
 	'questions:menu:filter:experts' => 'IA-medewerkers',
 	'questions:menu:user_hover:make_expert:confirm' => 'Weet je zeker dat je deze gebruiker een IA-medewerker wilt maken van %s?',

@@ -36,7 +36,7 @@ if ($annotation_id) {
     
     forward(REFERER);
 } else {
-    $reply_id = $cafe->annotate('generic_comment', $text, $cafe->access_id, $user->guid);
+    $reply_id = $cafe->annotate('cafe_comment', $text, $cafe->access_id, $user->guid);
     if ($reply_id) {
         system_message(elgg_echo('theme_ffd:cafe:saved'));
     } else {

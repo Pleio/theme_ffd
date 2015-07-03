@@ -28,7 +28,7 @@ function theme_ffd_init() {
 	elgg_register_plugin_hook_handler("register", "menu:filter", "theme_ffd_questions_filter_menu_hook_handler");
 	elgg_register_plugin_hook_handler("register", "menu:ffd_questions_alt", "theme_ffd_questions_alt_menu_hook_handler");
 	elgg_register_plugin_hook_handler("register", "menu:ffd_questions_body", "theme_ffd_questions_body_menu_hook_handler");
-	elgg_register_plugin_hook_handler("register", "menu:entity", "theme_ffd_questions_entity_hook");
+	elgg_register_plugin_hook_handler("register", "menu:entity", "theme_ffd_entity_hook");
 	
 	// pagehandlers
 	elgg_register_page_handler("profile", "theme_ffd_profile_page_handler");
@@ -45,6 +45,8 @@ function theme_ffd_init() {
 	// register objects
 	elgg_register_entity_type("object", "cafe");
 	elgg_register_entity_url_handler("object", "cafe", "theme_ffd_cafe_url");	
+	elgg_register_plugin_hook_handler("notify:annotation:subject", "cafe_comment", "theme_ffd_cafe_notify_subject_handler");
+	elgg_register_plugin_hook_handler("notify:annotation:message", "cafe_comment", "theme_ffd_cafe_notify_message_handler");
 
 	//add a widget
 	elgg_register_widget_type("ffd_stats", elgg_echo("ffd_theme:widgets:ffd_stats:title"), elgg_echo("ffd_theme:widgets:ffd_stats:description"), "index");
@@ -108,19 +110,21 @@ function theme_ffd_profile_page_handler($page) {
  * @return bool
  */
  function theme_ffd_cafe_page_handler($segments) {
-	elgg_push_breadcrumb(elgg_echo('theme_ffd:cafe'), "cafe");
 	elgg_extend_view("page/elements/sidebar", "page/cafe/sidebar");
 
 	switch($segments[0]) {
 		case "detail":
+			elgg_push_breadcrumb(elgg_echo('theme_ffd:cafe'), "cafe");
 			set_input('guid', $segments[1]);
 			include(dirname(__FILE__) . "/pages/cafe/detail.php"); 
 			break;
 		case "edit":
+			elgg_push_breadcrumb(elgg_echo('theme_ffd:cafe'), "cafe");
 			set_input('guid', $segments[1]);
 			include(dirname(__FILE__) . "/pages/cafe/edit.php"); 
 			break;
 		default:
+			elgg_push_breadcrumb(elgg_echo('theme_ffd:cafe'));
 			include(dirname(__FILE__) . "/pages/cafe/overview.php"); 
 			break;
 	}

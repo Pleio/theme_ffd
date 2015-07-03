@@ -85,11 +85,11 @@ function theme_ffd_questions_filter_menu_hook_handler($hook, $type, $return_valu
 }
 
 
-function theme_ffd_questions_entity_hook($hook_name, $entity_type, $return_value, $params) {
+function theme_ffd_entity_hook($hook_name, $entity_type, $return_value, $params) {
 	$entity = elgg_extract("entity", $params);
 	$full_view = elgg_extract("full_view", $params);
 
-	if (elgg_instanceof($entity, 'object', 'question') && $full_view) {
+	if ((elgg_instanceof($entity, 'object', 'question') && $full_view) | elgg_instanceof($entity, 'object', 'cafe')) {
 		if (elgg_is_logged_in() && elgg_is_active_plugin("content_subscriptions")) {
 			if (!content_subscriptions_check_subscription($entity->guid)) {
 				$url = "action/content_subscriptions/subscribe?entity_guid=" . $entity->getGUID();
@@ -226,4 +226,18 @@ function theme_ffd_questions_body_menu_hook_handler($hook, $type, $return_value,
 	));
 
 	return $return_value;
+}
+
+function theme_ffd_cafe_notify_subject_handler($hook, $type, $items, $params) {
+	$answer = $params['annotation'];
+	$message = $answer->getEntity();
+
+	return elgg_echo("theme_ffd:cafe:notify:subject", array($message->title));	
+}
+
+function theme_ffd_cafe_notify_message_handler($hook, $type, $items, $params) {
+	$answer = $params['annotation'];
+	$message = $answer->getEntity();
+
+	return elgg_echo("theme_ffd:cafe:notify:message", array($message->title, $message->getURL()));
 }

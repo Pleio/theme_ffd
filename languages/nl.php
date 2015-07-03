@@ -61,6 +61,11 @@ $dutch = array(
   'theme_ffd:cafe:deleted' => 'Het bericht is opgeslagen.',
   'theme_ffd:cafe:nopermissions' => 'Geen rechten om dit bericht te wijzigen.',
   'theme_ffd:cafe:fieldsmissing' => 'Verplichte velden zijn niet ingevuld.',
+  'theme_ffd:cafe:notify:subject' => 'Een nieuw reactie is geplaatst voor: %s',
+  'theme_ffd:cafe:notify:message' => 'Een nieuwe reactie voor %s is geplaatst.
+
+Om de reactie te bekijken ga naar:
+%s',  
 
   'questions:edit:question:title' => 'Titel van de vraag',
   'questions:edit:question:description' => 'Stel uw vraag',

@@ -19,7 +19,7 @@ $output = elgg_view_entity($cafe, array('full_view' => true));
 
 $options = array(
     'guid' => $cafe->guid,
-    'annotation_names' => 'generic_comment'
+    'annotation_names' => 'cafe_comment'
 );
 
 $count = elgg_get_annotations(array_merge($options, array(

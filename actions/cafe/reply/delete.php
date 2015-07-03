@@ -3,7 +3,7 @@
 $id = (int) get_input('annotation_id');
 
 $reply = elgg_get_annotation_from_id($id);
-if (!$reply || $reply->name != 'generic_comment') {
+if (!$reply || $reply->name != 'cafe_comment') {
     register_error(elgg_echo('theme_ffd:cafe:notdeleted'));
     forward(REFERER);
 }
