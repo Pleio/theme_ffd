@@ -87,9 +87,8 @@ function theme_ffd_questions_filter_menu_hook_handler($hook, $type, $return_valu
 
 function theme_ffd_entity_hook($hook_name, $entity_type, $return_value, $params) {
 	$entity = elgg_extract("entity", $params);
-	$full_view = elgg_extract("full_view", $params);
 
-	if ((elgg_instanceof($entity, 'object', 'question') && $full_view) | elgg_instanceof($entity, 'object', 'cafe')) {
+	if (elgg_instanceof($entity, 'object', 'question') | elgg_instanceof($entity, 'object', 'cafe')) {
 		if (elgg_is_logged_in() && elgg_is_active_plugin("content_subscriptions")) {
 			if (!content_subscriptions_check_subscription($entity->guid)) {
 				$url = "action/content_subscriptions/subscribe?entity_guid=" . $entity->getGUID();
