@@ -227,6 +227,32 @@ function theme_ffd_questions_body_menu_hook_handler($hook, $type, $return_value,
 	return $return_value;
 }
 
+/**
+ * Adds a delete link to "generic_comment" annotations
+ * @access private
+ */
+function theme_ffd_annotation_menu_setup($hook, $type, $return, $params) {
+	$annotation = $params['annotation'];
+	/* @var ElggAnnotation $annotation */
+
+	if ($annotation->name == 'cafe_comment' && $annotation->canEdit()) {
+		$url = elgg_http_add_url_query_elements('action/comments/delete', array(
+			'annotation_id' => $annotation->id,
+		));
+
+		$options = array(
+			'name' => 'delete',
+			'href' => $url,
+			'text' => "<span class=\"elgg-icon elgg-icon-delete\"></span>",
+			'confirm' => elgg_echo('deleteconfirm'),
+			'encode_text' => false
+		);
+		$return[] = ElggMenuItem::factory($options);
+	}
+
+	return $return;
+}
+
 function theme_ffd_cafe_notify_subject_handler($hook, $type, $items, $params) {
 	$answer = $params['annotation'];
 	$message = $answer->getEntity();

@@ -47,6 +47,7 @@ function theme_ffd_init() {
 	elgg_register_entity_url_handler("object", "cafe", "theme_ffd_cafe_url");	
 	elgg_register_plugin_hook_handler("notify:annotation:subject", "cafe_comment", "theme_ffd_cafe_notify_subject_handler");
 	elgg_register_plugin_hook_handler("notify:annotation:message", "cafe_comment", "theme_ffd_cafe_notify_message_handler");
+	elgg_register_plugin_hook_handler('register', 'menu:annotation', 'theme_ffd_annotation_menu_setup');
 
 	//add a widget
 	elgg_register_widget_type("ffd_stats", elgg_echo("ffd_theme:widgets:ffd_stats:title"), elgg_echo("ffd_theme:widgets:ffd_stats:description"), "index");
