@@ -71,6 +71,7 @@ elgg.tinymce.init = function() {
         toolbar3 : "<?php echo $menu3;?>",
         media_strict: false,
         image_advtab: true,
+        language : "<?php echo get_language(); ?>",
         width : "100%",
         extended_valid_elements : "<?php echo $valid_elements;?>",
         content_css: [
