@@ -18,8 +18,9 @@ function theme_ffd_init() {
 	elgg_unextend_view("page/elements/header", "search/header");
 	
 	elgg_extend_view("css/elgg", "css/theme_ffd/site");
-
 	elgg_extend_view('js/elgg', 'theme_ffd/js/site');
+
+	elgg_register_js('tinymce', 'mod/theme_ffd/vendors/tinymce/js/tinymce/tinymce.min.js');
 
 	// Replace the default index page
 	elgg_register_plugin_hook_handler("index", "system", "theme_ffd_index");
@@ -29,7 +30,7 @@ function theme_ffd_init() {
 	elgg_register_plugin_hook_handler("register", "menu:ffd_questions_alt", "theme_ffd_questions_alt_menu_hook_handler");
 	elgg_register_plugin_hook_handler("register", "menu:ffd_questions_body", "theme_ffd_questions_body_menu_hook_handler");
 	elgg_register_plugin_hook_handler("register", "menu:entity", "theme_ffd_entity_hook");
-	
+
 	// pagehandlers
 	elgg_register_page_handler("profile", "theme_ffd_profile_page_handler");
 	elgg_register_page_handler("cafe", "theme_ffd_cafe_page_handler");
