@@ -29,25 +29,22 @@ function theme_ffd_route_questions_hook($hook_name, $entity_type, $return_value,
 }
 
 
-function theme_ffd_questions_filter_menu_hook_handler($hook, $type, $return_value, $params) {
+function theme_ffd_category_filter_menu_hook_handler($hook, $type, $return_value, $params) {
 	if (elgg_in_context("questions")) {
-		
 		$return_value[] = ElggMenuItem::factory(array(
 			"name" => "most_viewed",
 			"text" => elgg_echo("theme_ffd:questions:filter:most_viewed"),
 			"href" => "questions/most_viewed",
 			"priority" => 600
 		));
-		
-		
 		$return_value[] = ElggMenuItem::factory(array(
-			"name" => "questions-category",
+			"name" => "filter-category",
 			"text" => elgg_echo("theme_ffd:questions:filter:category") . elgg_view_icon("caret-down"),
 			"href" => "#",
 			"priority" => 1000,
 			"item_class" => "float-alt"
 		));
-		
+
 		$options = array(
 			"type" => "group",
 			"limit" => false,
@@ -72,12 +69,30 @@ function theme_ffd_questions_filter_menu_hook_handler($hook, $type, $return_valu
 
 			if ($context) {
 				$return_value[] = ElggMenuItem::factory(array(
-					"name" => "questions-category_" .  $group->getGUID(),
+					"name" => "filter-category_" .  $group->getGUID(),
 					"text" => elgg_view_icon("share-square", "mrs") . $group->name,
 					"href" => "questions/group/" . $group->getGUID() . "/" . $context,
-					"parent_name" => "questions-category"
+					"parent_name" => "filter-category"
 				));
 			}
+		}
+	} elseif (elgg_in_context('cafe')) {
+		$return_value[] = ElggMenuItem::factory(array(
+			"name" => "filter-category",
+			"text" => elgg_echo("theme_ffd:questions:filter:category") . elgg_view_icon("caret-down"),
+			"href" => "#",
+			"priority" => 1000,
+			"item_class" => "float-alt"
+		));
+
+		$options = array('search','share','experience');
+		foreach ($options as $option) {
+			$return_value[] = ElggMenuItem::factory(array(
+				"name" => "filter-category_" . $option,
+				"text" => elgg_view_icon("share-square", "mrs") . elgg_echo('theme_ffd:cafe:purpose:' . $option),
+				"href" => "cafe/purpose/" . $option,
+				"parent_name" => "filter-category"
+			));
 		}
 	}
 
@@ -253,16 +268,16 @@ function theme_ffd_annotation_menu_setup($hook, $type, $return, $params) {
 	return $return;
 }
 
-function theme_ffd_cafe_notify_subject_handler($hook, $type, $items, $params) {
-	$answer = $params['annotation'];
-	$message = $answer->getEntity();
+function theme_ffd_cafe_filter_menu_handler($hook, $type, $objects, $params) {
 
-	return elgg_echo("theme_ffd:cafe:notify:subject", array($message->title));	
-}
+	if (elgg_in_context('cafe')) {
+		foreach ($objects as $key => $object) {
+			// remove friends
+			if ($object->getName() == "friend") {
+				unset($objects[$key]);
+			}
+		}
+	}
 
-function theme_ffd_cafe_notify_message_handler($hook, $type, $items, $params) {
-	$answer = $params['annotation'];
-	$message = $answer->getEntity();
-
-	return elgg_echo("theme_ffd:cafe:notify:message", array($message->title, $message->getURL()));
+	return $objects;
 }

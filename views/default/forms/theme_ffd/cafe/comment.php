@@ -6,7 +6,7 @@
  */
 
 $cafe = elgg_extract("cafe", $vars);
-$annotation = elgg_extract("annotation", $vars);
+$comment = elgg_extract("comment", $vars);
 
 if ($cafe) {
     echo elgg_view("input/hidden", array("name" => "entity_guid", "value" => $cafe->guid));
@@ -16,8 +16,8 @@ if ($cafe) {
 
 <div>
     <?php echo elgg_view('input/longtext', array(
-        'name' => 'text',
-        'value' => elgg_get_sticky_value('cafe_reply', 'text', $annotation->text)
+        'name' => 'generic_comment',
+        'value' => elgg_get_sticky_value('comment', 'generic_comment', $comment->description)
     ));
     ?>
 </div>
