@@ -15,7 +15,7 @@ function theme_ffd_fivestar_get_top_users($n_days = 90, $eps = 0.5) {
         if (!array_key_exists($annotation->owner_guid, $top_users)) {
             $top_users[$annotation->owner_guid] = array();
         }
-        
+
         $top_users[$annotation->owner_guid][] = $annotation->value/100;
     }
 

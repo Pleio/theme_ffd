@@ -5,7 +5,9 @@
  * @package theme_ffd
  */
 
-$output = elgg_view_form('theme_ffd/cafe', array(
+elgg_push_context("cafe");
+
+$add = elgg_view_form('theme_ffd/cafe', array(
     'name' => 'cafe',
     'action' => 'action/cafe/save'
     ), array('collapsable' => true)
@@ -14,9 +16,41 @@ $output = elgg_view_form('theme_ffd/cafe', array(
 $options = array(
     'type' => 'object',
     'subtype' => 'cafe',
+    'order_by' => 'last_action DESC',
     'full_view' => false
 );
-$output .= elgg_list_entities($options);
 
-$content = elgg_view_layout('two_column_left_sidebar', array('content' => $output));
-echo elgg_view_page(elgg_echo('theme_ffd:cafe'), $content);
+$owner = get_input('owner');
+if ($owner) {
+    $owner = get_user_by_username($owner);
+}
+
+if ($owner) {
+    $options['owner_guid'] = $owner->guid;
+    $filter_context = 'mine';
+} else {
+    $filter_context = 'all';
+}
+
+$purpose = get_input('purpose');
+if (in_array($purpose, array('search', 'share', 'experience'))) {
+    $options['metadata_name_value_pairs'] = array(
+        array(
+            'name' => 'purpose',
+            'value' => $purpose
+        )
+    );
+    $getter = 'elgg_get_entities_from_metadata';
+} else {
+    $getter = 'elgg_get_entities';
+}
+
+$output .= elgg_list_entities($options, $getter);
+
+$body = elgg_view_layout('content', array(
+    'header' => $add,
+    'content' => $output,
+    'filter_context' => $filter_context
+));
+
+echo elgg_view_page(elgg_echo('theme_ffd:cafe'), $body);

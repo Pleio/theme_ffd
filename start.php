@@ -16,7 +16,7 @@ elgg_register_event_handler("init", "system", "theme_ffd_init");
 
 function theme_ffd_init() {
 	elgg_unextend_view("page/elements/header", "search/header");
-	
+
 	elgg_extend_view("css/elgg", "css/theme_ffd/site");
 	elgg_extend_view('js/elgg', 'theme_ffd/js/site');
 
@@ -24,9 +24,9 @@ function theme_ffd_init() {
 
 	// Replace the default index page
 	elgg_register_plugin_hook_handler("index", "system", "theme_ffd_index");
-	
+
 	elgg_register_plugin_hook_handler("route", "questions", "theme_ffd_route_questions_hook");
-	elgg_register_plugin_hook_handler("register", "menu:filter", "theme_ffd_questions_filter_menu_hook_handler");
+	elgg_register_plugin_hook_handler("register", "menu:filter", "theme_ffd_category_filter_menu_hook_handler");
 	elgg_register_plugin_hook_handler("register", "menu:ffd_questions_alt", "theme_ffd_questions_alt_menu_hook_handler");
 	elgg_register_plugin_hook_handler("register", "menu:ffd_questions_body", "theme_ffd_questions_body_menu_hook_handler");
 	elgg_register_plugin_hook_handler("register", "menu:entity", "theme_ffd_entity_hook");
@@ -40,19 +40,23 @@ function theme_ffd_init() {
 	$actions_base = dirname(__FILE__) . "/actions/cafe";
 	elgg_register_action("cafe/save", "$actions_base/save.php");
 	elgg_register_action("cafe/delete", "$actions_base/delete.php");
-	elgg_register_action("cafe/reply/save", "$actions_base/reply/save.php");
-	elgg_register_action("cafe/reply/delete", "$actions_base/reply/delete.php");
-	
+
 	// register objects
+	elgg_register_menu_item("site", array(
+		"name" => 'cafe',
+		"text" => elgg_echo('cafe'),
+		"href" => 'cafe',
+	));
+
 	elgg_register_entity_type("object", "cafe");
-	elgg_register_entity_url_handler("object", "cafe", "theme_ffd_cafe_url");	
-	elgg_register_plugin_hook_handler("notify:annotation:subject", "cafe_comment", "theme_ffd_cafe_notify_subject_handler");
-	elgg_register_plugin_hook_handler("notify:annotation:message", "cafe_comment", "theme_ffd_cafe_notify_message_handler");
+	elgg_register_entity_url_handler("object", "cafe", "theme_ffd_cafe_url");
 	elgg_register_plugin_hook_handler('register', 'menu:annotation', 'theme_ffd_annotation_menu_setup');
+	elgg_register_plugin_hook_handler("register", 'menu:filter', 'theme_ffd_cafe_filter_menu_handler');
 
 	//add a widget
 	elgg_register_widget_type("ffd_stats", elgg_echo("ffd_theme:widgets:ffd_stats:title"), elgg_echo("ffd_theme:widgets:ffd_stats:description"), "index");
 	elgg_register_widget_type("recent_questions", elgg_echo("ffd_theme:widgets:recent_questions:title"), elgg_echo("ffd_theme:widgets:recent_questions:description"), "index");
+	elgg_register_widget_type("recent_cafe", elgg_echo("ffd_theme:widgets:recent_cafe:title"), elgg_echo("ffd_theme:widgets:recent_cafe:description"), "index");
 	elgg_register_widget_type("ask_question", elgg_echo("ffd_theme:widgets:ask_question:title"), elgg_echo("ffd_theme:widgets:ask_question:description"), "index");
 	elgg_register_widget_type("ffd_datetime", elgg_echo("date:month:" . date("m"), array(date("j"))), elgg_echo("ffd_theme:widgets:ffd_datetime:description"), "index");
 	elgg_register_widget_type("ffd_videos", elgg_echo("ffd_theme:widgets:ffd_videos:title"), elgg_echo("ffd_theme:widgets:ffd_videos:description"), "index");
@@ -70,7 +74,6 @@ function theme_ffd_init() {
  * @return bool
  */
 function theme_ffd_profile_page_handler($page) {
-
 	if (isset($page[0])) {
 		$username = $page[0];
 		$user = get_user_by_username($username);
@@ -116,18 +119,23 @@ function theme_ffd_profile_page_handler($page) {
 
 	switch($segments[0]) {
 		case "detail":
-			elgg_push_breadcrumb(elgg_echo('theme_ffd:cafe'), "cafe");
 			set_input('guid', $segments[1]);
-			include(dirname(__FILE__) . "/pages/cafe/detail.php"); 
+			elgg_push_breadcrumb(elgg_echo('theme_ffd:cafe'), 'cafe');
+			include(dirname(__FILE__) . "/pages/cafe/detail.php");
 			break;
 		case "edit":
-			elgg_push_breadcrumb(elgg_echo('theme_ffd:cafe'), "cafe");
 			set_input('guid', $segments[1]);
-			include(dirname(__FILE__) . "/pages/cafe/edit.php"); 
+			elgg_push_breadcrumb(elgg_echo('theme_ffd:cafe'), 'cafe');
+			include(dirname(__FILE__) . "/pages/cafe/edit.php");
 			break;
+		case "owner":
+			set_input('owner', $segments[1]);
+		case "purpose":
+			set_input('purpose', $segments[1]);
+		case "all":
 		default:
 			elgg_push_breadcrumb(elgg_echo('theme_ffd:cafe'));
-			include(dirname(__FILE__) . "/pages/cafe/overview.php"); 
+			include(dirname(__FILE__) . "/pages/cafe/overview.php");
 			break;
 	}
 

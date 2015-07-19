@@ -9,6 +9,7 @@ $poster_link = elgg_view("output/url", array("text" => $poster->name, "href" => 
 $poster_text = elgg_echo("theme_ffd:cafe:placed_by") . "&nbsp;" . $poster_link;
 
 $date = elgg_view_friendly_time($cafe->time_created);
+$subtitle = "$poster_text $date";
 
 $params = array();
 
@@ -29,11 +30,21 @@ if ($full) {
         'text' => elgg_echo("theme_ffd:cafe:purpose:" . $cafe->purpose) . "&nbsp;" . $cafe->title
     ));
     $params['content'] = elgg_get_excerpt($cafe->description);
+
+    $last_comment = $cafe->lastComment();
+    if ($last_comment) {
+        $last_commenter = $last_comment->getOwnerEntity();
+        $last_commenter_link = elgg_view("output/url", array("text" => $last_commenter->name, "href" => $last_commenter->getURL()));
+        $last_comment_time = elgg_view_friendly_time($last_comment->time_created);
+
+        $answered_by = elgg_echo('theme_ffd:cafe:answered_by');
+        $subtitle .= "<br />$answered_by $last_commenter_link $last_comment_time";
+    }
 }
 
 $params = array_merge($params, array(
     "entity" => $cafe,
-    "subtitle" => "$poster_text $date",
+    "subtitle" => $subtitle,
     "tags" => elgg_view("output/tags", array("tags" => $question->tags))
 ));
 
