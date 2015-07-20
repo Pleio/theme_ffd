@@ -7,11 +7,15 @@
 
 elgg_push_context("cafe");
 
-$add = elgg_view_form('theme_ffd/cafe', array(
-    'name' => 'cafe',
-    'action' => 'action/cafe/save'
-    ), array('collapsable' => true)
-);
+if (elgg_is_logged_in() && can_write_to_container()) {
+    $add = elgg_view_form('theme_ffd/cafe', array(
+        'name' => 'cafe',
+        'action' => 'action/cafe/save'
+        ), array('collapsable' => true)
+    );
+} else {
+    $add = "";
+}
 
 $options = array(
     'type' => 'object',
