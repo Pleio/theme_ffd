@@ -42,7 +42,8 @@ if ($cafe) {
             'name' => 'title',
             'class' => 'elgg-autofocus',
             'maxlength' => '60',
-            'value' => elgg_get_sticky_value('cafe', 'title', $cafe->title)
+            'value' => elgg_get_sticky_value('cafe', 'title', $cafe->title),
+            'required' => true
         ));
         ?>
         </div>
@@ -61,7 +62,8 @@ if ($cafe) {
         <label for="tags"><?php echo elgg_echo("tags"); ?></label>
         <?php echo elgg_view('input/tags', array(
             'name' => 'tags',
-            'value' => elgg_get_sticky_value('cafe', 'tags', $cafe->tags)
+            'value' => elgg_get_sticky_value('cafe', 'tags', $cafe->tags),
+            'required' => true
         ));
         ?>
     </div>    

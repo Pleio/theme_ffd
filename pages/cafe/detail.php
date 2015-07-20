@@ -20,6 +20,7 @@ $output = elgg_view_entity($cafe, array('full_view' => true));
 $options = array(
     'type' => 'object',
     'subtype' => 'comment',
+    'container_guid' => $cafe->guid,
     'order_by' => 'time_created ASC',
     'limit' => false,
     'pagination' => false
