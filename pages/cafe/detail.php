@@ -34,14 +34,16 @@ $comments_title = elgg_view_icon("comment-o", "mrs") . $count . " " . elgg_echo(
 $comments = elgg_list_entities($options);
 $output .= elgg_view_module('info', $comments_title, $comments, array("class" => "mtm ffd-answers"));
 
-$cafe_comment = elgg_view_form('theme_ffd/cafe/comment', array(
-    'name' => 'cafe_comment',
-    'action' => 'action/comment/save'
-), array(
-    'cafe' => $cafe
-));
+if (elgg_is_logged_in()) {
+    $cafe_comment = elgg_view_form('theme_ffd/cafe/comment', array(
+        'name' => 'cafe_comment',
+        'action' => 'action/comment/save'
+    ), array(
+        'cafe' => $cafe
+    ));
 
-$output .= elgg_view_module('info', elgg_echo('theme_ffd:cafe:comment'), $cafe_comment);
+    $output .= elgg_view_module('info', elgg_echo('theme_ffd:cafe:comment'), $cafe_comment);
+}
 
 $content = elgg_view_layout('one_column', array('content' => $output));
 echo elgg_view_page(elgg_echo('theme_ffd:cafe'), $content);

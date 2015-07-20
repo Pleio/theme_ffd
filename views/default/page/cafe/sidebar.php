@@ -8,30 +8,32 @@
 ?>
 
 <div class="theme-ffd-cafe-profile-owner-block">
-    <div class="theme-ffd-profile-icon">
-        <?php echo elgg_view('profile/icon'); ?>
-    </div>
+    <?php if (elgg_is_logged_in()): ?>
+        <div class="theme-ffd-profile-icon">
+            <?php echo elgg_view('profile/icon'); ?>
+        </div>
 
-    <ul>
-        <li>
-            <?php
-                $user = elgg_get_logged_in_user_entity();
-                echo elgg_view("output/url", array(
-                    "text" => elgg_echo("profile:edit"),
-                    "href" => "profile/" . $user->username . "/edit",
-                ));
-            ?>
-        </li>
-    </ul>
+        <ul>
+            <li>
+                <?php
+                    $user = elgg_get_logged_in_user_entity();
+                    echo elgg_view("output/url", array(
+                        "text" => elgg_echo("profile:edit"),
+                        "href" => "profile/" . $user->username . "/edit",
+                    ));
+                ?>
+            </li>
+        </ul>
 
-    <div class="theme-ffd-profile-owner-short-description">
-        <b><?php echo elgg_echo("profile:briefdescription"); ?>:</b><br />
-        <?php if ($user->briefdescription): ?>
-            <?php echo $user->briefdescription; ?>
-        <?php else: ?>
-            <?php echo elgg_echo("theme_ffd:cafe:no_short_description"); ?>
-        <?php endif ?><br />
-    </div>
+        <div class="theme-ffd-profile-owner-short-description">
+            <b><?php echo elgg_echo("profile:briefdescription"); ?>:</b><br />
+            <?php if ($user->briefdescription): ?>
+                <?php echo $user->briefdescription; ?>
+            <?php else: ?>
+                <?php echo elgg_echo("theme_ffd:cafe:no_short_description"); ?>
+            <?php endif ?><br />
+        </div>
+    <?php endif ?>
 
     <div class="theme-ffd-search-users">
         <?php
