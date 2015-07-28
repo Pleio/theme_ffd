@@ -20,8 +20,6 @@ function theme_ffd_init() {
 	elgg_extend_view("css/elgg", "css/theme_ffd/site");
 	elgg_extend_view('js/elgg', 'theme_ffd/js/site');
 
-	elgg_register_js('tinymce', 'mod/theme_ffd/vendors/tinymce/js/tinymce/tinymce.min.js');
-
 	// Replace the default index page
 	elgg_register_plugin_hook_handler("index", "system", "theme_ffd_index");
 
