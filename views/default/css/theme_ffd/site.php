@@ -5,6 +5,10 @@ span.question-workflow-status {
 	color: blue;
 }
 
+.elgg-widgets {
+	width: 100%;
+}
+
 .elgg-button {
 	padding: 5px 6px;
 }
@@ -293,7 +297,7 @@ li.elgg-menu-item-access {
 }
 
 .ffd-widget-videos .list .elgg-item {
-	padding:5px;	
+	padding:5px;
 }
 
 .ffd-widget-videos .list .selected {
@@ -322,186 +326,6 @@ li.elgg-menu-item-access {
 .elgg-widget-instance-ffd_stats .elgg-icon-bar-chart-o {
 	color: black;
 	font-size: 24px;
-}
-
-.elgg-widget-instance-recent_questions > .elgg-head,
-.elgg-widget-instance-recent_questions .elgg-widget-content {
-	background: #<?php echo COLOR_BLUE;?>;
-	color: white;
-}
-
-.elgg-widget-instance-recent_questions .elgg-widget-content .elgg-icon-round-plus,
-.elgg-widget-instance-recent_questions .elgg-widget-content a {
-	color: white;
-}
-
-.elgg-widget-instance-recent_questions .question {
-	display: block;
-	height: 20px;
-	width: 100%;
-}
-
-.elgg-widget-instance-recent_questions .question-title {
-	width: 250px;
-	white-space: nowrap !important;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	word-wrap:normal !important;
-	float: left;
-}
-
-.elgg-widget-instance-recent_questions .question-date {
-	float: left;
-}
-
-.elgg-widget-instance-recent_questions > .elgg-head,
-.elgg-widget-instance-recent_questions .elgg-widget-content {
-	background: #<?php echo COLOR_BLUE;?>;
-	color: white;
-}
-
-.elgg-widget-instance-recent_questions .elgg-widget-content .elgg-icon-round-plus,
-.elgg-widget-instance-recent_questions .elgg-widget-content a {
-	color: white;
-}
-
-.elgg-widget-instance-recent_questions .question {
-	display: block;
-	height: 20px;
-	width: 100%;
-}
-
-.elgg-widget-instance-recent_questions .question-title {
-	width: 250px;
-	white-space: nowrap !important;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	word-wrap:normal !important;
-	float: left;
-}
-
-.elgg-widget-instance-recent_questions .question-date {
-	float: left;
-}
-
-.elgg-widget-instance-recent_questions > .elgg-head,
-.elgg-widget-instance-recent_questions .elgg-widget-content {
-	background: #<?php echo COLOR_BLUE;?>;
-	color: white;
-}
-
-.elgg-widget-instance-recent_questions .elgg-widget-content .elgg-icon-round-plus,
-.elgg-widget-instance-recent_questions .elgg-widget-content a {
-	color: white;
-}
-
-.elgg-widget-instance-recent_questions .question {
-	display: block;
-	height: 20px;
-	width: 100%;
-}
-
-.elgg-widget-instance-recent_questions .question-title {
-	width: 250px;
-	white-space: nowrap !important;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	word-wrap:normal !important;
-	float: left;
-}
-
-.elgg-widget-instance-recent_questions .question-date {
-	float: left;
-}
-
-.elgg-widget-instance-recent_questions > .elgg-head,
-.elgg-widget-instance-recent_questions .elgg-widget-content {
-	background: #<?php echo COLOR_BLUE;?>;
-	color: white;
-}
-
-.elgg-widget-instance-recent_questions .elgg-widget-content .elgg-icon-round-plus,
-.elgg-widget-instance-recent_questions .elgg-widget-content a {
-	color: white;
-}
-
-.elgg-widget-instance-recent_questions .question {
-	display: block;
-	height: 20px;
-	width: 100%;
-}
-
-.elgg-widget-instance-recent_questions .question-title {
-	width: 250px;
-	white-space: nowrap !important;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	word-wrap:normal !important;
-	float: left;
-}
-
-.elgg-widget-instance-recent_questions .question-date {
-	float: left;
-}
-
-.elgg-widget-instance-recent_cafe > .elgg-head,
-.elgg-widget-instance-recent_cafe .elgg-widget-content {
-	background: #<?php echo COLOR_BLUE;?>;
-	color: white;
-}
-
-.elgg-widget-instance-recent_cafe .elgg-widget-content .elgg-icon-round-plus,
-.elgg-widget-instance-recent_cafe .elgg-widget-content a {
-	color: white;
-}
-
-.elgg-widget-instance-recent_cafe .cafe {
-	display: block;
-	height: 20px;
-	width: 100%;
-}
-
-.elgg-widget-instance-recent_cafe .cafe-title {
-	width: 250px;
-	white-space: nowrap !important;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	word-wrap:normal !important;
-	float: left;
-}
-
-.elgg-widget-instance-recent_cafe .cafe-date {
-	float: left;
-}
-
-.elgg-widget-instance-recent_cafe > .elgg-head,
-.elgg-widget-instance-recent_cafe .elgg-widget-content {
-	background: #<?php echo COLOR_BLUE;?>;
-	color: white;
-}
-
-.elgg-widget-instance-recent_cafe .elgg-widget-content .elgg-icon-round-plus,
-.elgg-widget-instance-recent_cafe .elgg-widget-content a {
-	color: white;
-}
-
-.elgg-widget-instance-recent_cafe .cafe {
-	display: block;
-	height: 20px;
-	width: 100%;
-}
-
-.elgg-widget-instance-recent_cafe .cafe-title {
-	width: 250px;
-	white-space: nowrap !important;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	word-wrap:normal !important;
-	float: left;
-}
-
-.elgg-widget-instance-recent_cafe .cafe-date {
-	float: left;
 }
 
 .elgg-widget-instance-search .elgg-input-text {
@@ -584,6 +408,56 @@ li.elgg-menu-item-access {
 .elgg-widget-instance-ask_question.elgg-state-draggable:hover .elgg-head,
 .elgg-widget-instance-search.elgg-state-draggable:hover .elgg-head {
 	display: block;
+}
+
+.elgg-widget-instance-recent_questions > .elgg-head,
+.elgg-widget-instance-recent_questions .elgg-widget-content {
+	background: #<?php echo COLOR_BLUE;?>;
+	color: white;
+}
+
+.elgg-widget-instance-recent_questions .elgg-widget-content .elgg-icon-round-plus,
+.elgg-widget-instance-recent_questions .elgg-widget-content a {
+	color: white;
+}
+
+.elgg-widget-instance-recent_questions .question-title {
+	width: 75%;
+	float: left;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.elgg-widget-instance-recent_questions .question-date {
+	text-align: right;
+	float: right;
+	width: 25%;
+}
+
+.elgg-widget-instance-recent_cafe > .elgg-head,
+.elgg-widget-instance-recent_cafe .elgg-widget-content {
+	background: #<?php echo COLOR_BLUE;?>;
+	color: white;
+}
+
+.elgg-widget-instance-recent_cafe .elgg-widget-content .elgg-icon-round-plus,
+.elgg-widget-instance-recent_cafe .elgg-widget-content a {
+	color: white;
+}
+
+.elgg-widget-instance-recent_cafe .cafe-title {
+	width: 75%;
+	float: left;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.elgg-widget-instance-recent_cafe .cafe-date {
+	text-align: right;
+	float: right;
+	width: 25%;
 }
 
 .elgg-form-login .elgg-icon-unlock-alt {
@@ -685,7 +559,7 @@ li.elgg-menu-item-filter-category {
 	margin: 0;
 }
 
-.elgg-form-theme-ffd-cafe .elgg-input-text { 
+.elgg-form-theme-ffd-cafe .elgg-input-text {
 	width: 69%;
 }
 
