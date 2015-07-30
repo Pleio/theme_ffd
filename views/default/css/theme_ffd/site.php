@@ -5,7 +5,7 @@ span.question-workflow-status {
 	color: blue;
 }
 
-.elgg-widgets {
+#elgg-widget-col-7 {
 	width: 100%;
 }
 
