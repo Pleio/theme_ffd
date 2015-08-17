@@ -20,10 +20,12 @@ a {
 	color: #<?php echo COLOR_BLUE; ?>;
 }
 
-a:hover,
-a.selected { <?php //@todo remove .selected ?>
-	color: #555555;
+a:hover {
 	text-decoration: underline;
+}
+
+a:visited {
+	color: #<?php echo COLOR_GREY_LIGHT; ?>;
 }
 
 p {
@@ -37,16 +39,12 @@ p:last-child {
 pre, code {
 	font-family: Monaco, "Courier New", Courier, monospace;
 	font-size: 12px;
-	
 	background:#EBF5FF;
 	color:#000000;
 	overflow:auto;
-
 	overflow-x: auto; /* Use horizontal scroller if needed; for Firefox 2, not needed in Firefox 3 */
-
 	white-space: pre-wrap;
 	word-wrap: break-word; /* IE 5.5-7 */
-	
 }
 
 pre {
