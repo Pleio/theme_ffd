@@ -20,12 +20,10 @@ a {
 	color: #<?php echo COLOR_BLUE; ?>;
 }
 
-a:hover {
+a:hover,
+a.selected { <?php //@todo: remove .selected ?>
+	color: #555555;
 	text-decoration: underline;
-}
-
-a:visited {
-	color: #<?php echo COLOR_GREY_LIGHT; ?>;
 }
 
 p {

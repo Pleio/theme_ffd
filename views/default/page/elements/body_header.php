@@ -11,6 +11,10 @@ if (!elgg_in_context("login")) {
 	if (elgg_in_context("nieuws")) {
 		$quote = "nieuws";
 	}
+	if (elgg_in_context("cafe")) {
+		$quote = "cafe";
+	}
+
 	echo elgg_view("output/img", array(
 			"src" => THEME_GRAPHICS . "quotes/txt_" . $quote . ".png",
 			"id" => "theme-ffd-header-subtext"
