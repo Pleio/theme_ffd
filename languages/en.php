@@ -28,8 +28,6 @@ $english = array(
 	
 	'theme_ffd:profile:question_stats:count_questions' => "Number of questions asked",
 	'theme_ffd:profile:question_stats:count_answers' => "Number of answers give",
-	'theme_ffd:profile:question_stats:count_correct' => "Correct answers",
-	'theme_ffd:profile:question_stats:count_likes' => "Questions liked",
 	
 	'theme_ffd:entity_view_counter:questions:menu:views' => "bekeken (%d)",
 	'theme_ffd:likes:questions:menu:views' => "geliked (%d)",

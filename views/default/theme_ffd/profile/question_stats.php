@@ -44,8 +44,6 @@ if ($user) {
 	echo "<ul>";
 	echo "<li>" . elgg_echo("theme_ffd:profile:question_stats:count_questions") . ": <span class='theme-ffd-profile-question-stats-count'>" . $asked_count . "</span></li>";
 	echo "<li>" . elgg_echo("theme_ffd:profile:question_stats:count_answers") . ": <span class='theme-ffd-profile-question-stats-count'>" . $answered_count . "</span></li>";
-	echo "<li>" . elgg_echo("theme_ffd:profile:question_stats:count_correct") . ": <span class='theme-ffd-profile-question-stats-count'>" . $correct_count . "</span></li>";
-	echo "<li>" . elgg_echo("theme_ffd:profile:question_stats:count_likes") . ": <span class='theme-ffd-profile-question-stats-count'>" . $liked_count . "</span></li>";
 	echo "</ul>";
 	
 	echo "</div>";
