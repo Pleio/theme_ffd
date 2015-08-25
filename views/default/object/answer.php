@@ -1,8 +1,7 @@
 <?php
 $answer = $vars['entity'];
 
-//$image = elgg_view_entity_icon(get_entity($answer->owner_guid), 'small');
-$image = elgg_view_icon("comment-o", "theme-ffd-answer-icon");
+$image = elgg_view_entity_icon(get_entity($answer->owner_guid), 'small');
 
 // mark this as the correct answer?
 $correct_answer = $answer->isCorrect();

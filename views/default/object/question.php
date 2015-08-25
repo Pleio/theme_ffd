@@ -21,8 +21,7 @@ if ($workflow) {
 
 $poster = $question->getOwnerEntity();
 
-// $poster_icon = elgg_view_entity_icon($poster, "small");
-$poster_icon = elgg_view_icon("question", "theme-ffd-question-icon");
+$poster_icon = elgg_view_entity_icon($poster, "small");
 $poster_link = elgg_view("output/url", array("text" => $poster->name, "href" => $poster->getURL(), "is_trusted" => true));
 $poster_text = elgg_echo("questions:asked", array($poster_link));
 

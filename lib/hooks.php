@@ -123,6 +123,18 @@ function theme_ffd_entity_hook($hook_name, $entity_type, $return_value, $params)
 		}
 	}
 
+	if (elgg_instanceof($entity, 'object', 'page_top')) {
+		foreach ($return_value as $key => $item) {
+			$name = $item->getName();
+			if ($name == "history" && !elgg_is_admin_logged_in()) {
+				unset($return_value[$key]);
+			}
+			if ($name == "export" && !elgg_is_admin_logged_in()) {
+				unset($return_value[$key]);
+			}
+		}
+	}
+
 	return $return_value;
 }
 

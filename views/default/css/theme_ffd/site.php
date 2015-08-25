@@ -134,6 +134,10 @@ span.question-workflow-status {
 	background: #<?php echo COLOR_BLUE_LIGHT;?>;
 }
 
+.ffd-lichtblauw a {
+	color: #<?php echo COLOR_BLUE_DARK; ?>;
+}
+
 .ffd-blauw,
 .ffd-blauw > .elgg-head,
 .ffd-blauw > .elgg-body {
@@ -162,6 +166,10 @@ span.question-workflow-status {
 .ffd-lichtgrijs > .elgg-head,
 .ffd-lichtgrijs > .elgg-body {
 	background: #D6D6D6;
+}
+
+.ffd-link-bezocht a:visited {
+	color: #<?php echo COLOR_GREY_LIGHT;?>;
 }
 
 .elgg-output .fa {
@@ -433,17 +441,6 @@ li.elgg-menu-item-access {
 	text-align: right;
 	float: right;
 	width: 25%;
-}
-
-.elgg-widget-instance-recent_cafe > .elgg-head,
-.elgg-widget-instance-recent_cafe .elgg-widget-content {
-	background: #<?php echo COLOR_BLUE;?>;
-	color: white;
-}
-
-.elgg-widget-instance-recent_cafe .elgg-widget-content .elgg-icon-round-plus,
-.elgg-widget-instance-recent_cafe .elgg-widget-content a {
-	color: white;
 }
 
 .elgg-widget-instance-recent_cafe .cafe-title {
