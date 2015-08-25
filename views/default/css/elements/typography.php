@@ -17,7 +17,7 @@ body {
 }
 
 a {
-	color: #<?php echo COLOR_BLUE; ?>;
+	color: #<?php echo COLOR_BLUE_DARK; ?>;
 }
 
 a:hover,

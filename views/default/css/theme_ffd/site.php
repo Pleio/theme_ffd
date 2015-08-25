@@ -640,10 +640,6 @@ li.elgg-menu-item-filter-category {
 	font-size: 14px;
 }
 
-.fivestar-ratings {
-	float: right;
-}
-
 /** Responsive **/
 @media (max-width: 1120px) {
 	#theme-ffd-header-speech-bubble {
