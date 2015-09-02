@@ -11,13 +11,18 @@
 	<label><?php echo elgg_echo('loginusername'); ?></label>
 	<?php echo elgg_view('input/text', array(
 		'name' => 'username',
+		'id' => 'username',
 		'class' => 'elgg-autofocus',
 		));
 	?>
 </div>
 <div>
 	<label><?php echo elgg_echo('password'); ?></label>
-	<?php echo elgg_view('input/password', array('name' => 'password')); ?>
+	<?php echo elgg_view('input/password', array(
+		'name' => 'password',
+		'id' => 'password'
+		));
+	?>
 </div>
 
 <?php echo elgg_view('login/extend', $vars); ?>
@@ -27,16 +32,12 @@
 		<input type="checkbox" name="persistent" value="true" />
 		<?php echo elgg_echo('user:persistent'); ?>
 	</label>
-	
+
+	<button type="submit" class="elgg-button elgg-button-submit">
+		<?php echo elgg_view_icon("unlock-alt", "mrs") . elgg_echo("login"); ?>
+	</button>
+
 	<?php
-	echo elgg_view("input/submit", array("value" => elgg_echo("login"), "class" => "hidden"));
-	echo elgg_view("output/url", array(
-		"text" => elgg_view_icon("unlock-alt", "mrs") . elgg_echo("login"),
-		"href" => "javascript:return void(0);",
-		"onclick" => "$('.elgg-form-login').submit();",
-		"class" => "elgg-button elgg-button-submit"
-	));
-	
 	if (isset($vars['returntoreferer'])) {
 		echo elgg_view('input/hidden', array('name' => 'returntoreferer', 'value' => 'true'));
 	}
