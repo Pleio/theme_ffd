@@ -1,6 +1,6 @@
 <?php
 
-function theme_ffd_fivestar_get_top_users($n_days = 90, $eps = 0.5) {
+function theme_ffd_fivestar_get_top_users($n_days = 14, $eps = 0.5) {
     $options = array(
         'annotation_name' => 'fivestar',
         'where' => 'n_table.time_created > ' . (time() - 3600*24*$n_days),
@@ -12,11 +12,12 @@ function theme_ffd_fivestar_get_top_users($n_days = 90, $eps = 0.5) {
 
     $top_users = array();
     foreach ($annotations as $annotation) {
-        if (!array_key_exists($annotation->owner_guid, $top_users)) {
-            $top_users[$annotation->owner_guid] = array();
+        $user = $annotation->getEntity()->getOwnerGuid();
+        if (!array_key_exists($user, $top_users)) {
+            $top_users[$user] = array();
         }
 
-        $top_users[$annotation->owner_guid][] = $annotation->value/100;
+        $top_users[$user][] = $annotation->value/100;
     }
 
     $max_scores = 0;
