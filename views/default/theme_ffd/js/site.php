@@ -3,14 +3,14 @@
 elgg.provide('elgg.theme_ffd');
 
 elgg.theme_ffd.init = function() {
-    $('.theme-ffd-collapse-control').live('click', function() {
+    $('.theme-ffd-collapse-control').live('click', function(event) {
         event.preventDefault();
 
         $('.theme-ffd-collapse-control').toggle();
         $('.theme-ffd-collapsable').toggle(400);
     });
 
-    $('.ffd-widget-videos .elgg-list a').live('click', function() {
+    $('.ffd-widget-videos .elgg-list a').live('click', function(event) {
         event.preventDefault();
 
         $(this).closest('.ffd-widget-videos').find('.elgg-item').removeClass('selected');
