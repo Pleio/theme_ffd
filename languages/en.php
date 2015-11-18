@@ -68,7 +68,7 @@ $english = array(
 
 To view the response, visit:
 %s',
-
+	'theme_ffd:cafe:welcome' => 'Welkom in het FD-café. Een informele plek om uw nieuws of ervaringen te delen, vakgenoten te vinden voor bv specifieke opdrachten, vacatures en gewaardeerde gebruikers, etc. Een prikbord voor niet-fiscale zaken dus.',
 	'questions:menu:filter:experts' => 'IA-medewerkers',
 	'questions:menu:user_hover:make_expert:confirm' => 'Weet je zeker dat je deze gebruiker een IA-medewerker wilt maken van %s?',
 	'questions:menu:user_hover:make_expert' => 'Maak IA-medewerker',

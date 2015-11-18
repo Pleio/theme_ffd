@@ -14,6 +14,8 @@ if ($cafe) {
 
 ?>
 
+<?php echo elgg_echo('theme_ffd:cafe:welcome'); ?>
+
 <?php if ($collapsable): ?>
     <div class="theme-ffd-top-button">
     <?php echo elgg_view("output/url", array(
