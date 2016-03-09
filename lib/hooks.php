@@ -152,7 +152,7 @@ function theme_ffd_questions_alt_menu_hook_handler($hook, $type, $return_value, 
 	
 	// view counter
 	if (elgg_is_active_plugin("entity_view_counter")) {
-		$count = $entity->countAnnotations(ENTITY_VIEW_COUNTER_ANNOTATION_NAME);
+		$count = entity_view_counter_count_views($entity);
 		
 		$return_value[] = ElggMenuItem::factory(array(
 			"name" => "view_counter",
