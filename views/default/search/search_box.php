@@ -6,12 +6,15 @@
  * @uses $vars['class'] Additional class
  */
 
+$site = elgg_get_site_entity();
+$search_caption = elgg_echo('theme_ffd:header:search') . " " . $site->name;
+
 if (array_key_exists('value', $vars)) {
 	$value = $vars['value'];
 } elseif ($value = get_input('q', get_input('tag', NULL))) {
 	$value = $value;
 } else {
-	$value = elgg_echo('theme_ffd:header:search');
+	$value = $search_caption;
 }
 
 $class = "elgg-search";
@@ -32,11 +35,12 @@ if (function_exists('mb_convert_encoding')) {
 }
 $display_query = htmlspecialchars($display_query, ENT_QUOTES, 'UTF-8', false);
 
+
 ?>
 
 <form class="<?php echo $class; ?>" action="<?php echo elgg_get_site_url(); ?>search" method="get">
 	<fieldset>
-		<input type="text" class="search-input" size="21" name="q" value="<?php echo $display_query; ?>" onblur="if (this.value=='') { this.value='<?php echo elgg_echo('theme_ffd:header:search'); ?>' }" onfocus="if (this.value=='<?php echo elgg_echo('theme_ffd:header:search'); ?>') { this.value='' };" />
+		<input type="text" class="search-input" size="21" name="q" value="<?php echo $display_query; ?>" onblur="if (this.value=='') { this.value='<?php echo $search_caption; ?>' }" onfocus="if (this.value=='<?php echo $search_caption; ?>') { this.value='' };" />
 		<input type="hidden" name="search_type" value="all" />
 		<input type="submit" value="<?php echo elgg_echo('search:go'); ?>" class="search-submit-button" />
 	</fieldset>

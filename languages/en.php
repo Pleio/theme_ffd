@@ -2,7 +2,7 @@
 
 $english = array(
 	'theme_ffd:navigation:home' => "Home",
-	'theme_ffd:header:search' => "Zoeken in Forum Fiscaal Dienstverleners",
+	'theme_ffd:header:search' => "Zoeken in",
 	'theme_ffd:index:title' => "Welkom op het Forum Fiscaal Dienstverleners",
 	'theme_ffd:index:description' => "In het Forum Fiscaal Dienstverleners werken fiscaal dienstverleners en de Belastingdienst samen aan actueler en informeler contact. In deze online community kunnen we elkaar ontmoeten en met elkaar kennis delen. Professionals uit hetzelfde vakgebied onder elkaar.
 <br /><br />Om deel te kunnen nemen is een beconnummer nodig. Medewerkers van hetzelfde kantoor kunnen met dit nummer een eigen account aanmaken.
@@ -75,7 +75,10 @@ To view the response, visit:
 	'questions:menu:user_hover:remove_expert' => 'Verwijder IA-medewerker',
 	'questions:menu:user_hover:remove_expert:confirm' => 'Weet je zeker dat je deze gebruiker wilt verwijderen als IA-medewerker van %s?',
 	'questions:experts:title' => 'IA-medewerkers',
-	'questions:experts:none' => 'Er zijn nog geen IA-medewerkers toegekend aan %s.'
+	'questions:experts:none' => 'Er zijn nog geen IA-medewerkers toegekend aan %s.',
+	'theme_ffd:settings:logo:loggedout' => 'Link naar logo (voor uitgelogde gebruikers)',
+	'theme_ffd:settings:logo:loggedin' => 'Link naar logo (voor ingelogde gebruikers)',
+	'theme_ffd:settings:welcome_text' => 'Welkomstekst'
 );
 
 add_translation("en", $english);

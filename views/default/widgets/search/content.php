@@ -4,10 +4,14 @@ $widget = $vars["entity"];
 
 $value = "";
 
+$site = elgg_get_site_entity();
+$search_caption = elgg_echo('theme_ffd:header:search') . " " . $site->name;
+
+
 if ($value = get_input('q', get_input('tag', NULL))) {
 	$value = $value;
 } else {
-	$value = elgg_echo('theme_ffd:header:search');
+	$value = $search_caption;
 }
 
 // @todo - why the strip slashes?
@@ -26,8 +30,8 @@ $display_query = htmlspecialchars($display_query, ENT_QUOTES, 'UTF-8', false);
 $form_body = elgg_view("input/text", array(
 	"name" => "q",
 	"value" => $display_query,
-	"onblur" => "if (this.value=='') { this.value='" . elgg_echo('theme_ffd:header:search') . "' }",
-	"onfocus" => "if (this.value=='" . elgg_echo('theme_ffd:header:search') . "') { this.value='' }"
+	"onblur" => "if (this.value=='') { this.value='" . $search_caption . "' }",
+	"onfocus" => "if (this.value=='" . $search_caption . "') { this.value='' }"
 ));
 
 list($type, $subtype) = explode(":" , $widget->types);
