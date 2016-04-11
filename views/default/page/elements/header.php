@@ -6,7 +6,7 @@
 
 $speech_bubble_loggedout = elgg_get_plugin_setting('speech_bubble_loggedout', 'theme_ffd');
 if (!$speech_bubble_loggedout) {
-	//$speech_bubble_loggedout = THEME_GRAPHICS . "speech_bubble_logged_out.png";
+	$speech_bubble_loggedout = THEME_GRAPHICS . "speech_bubble_logged_out.png";
 }
 
 $speech_bubble_loggedin = elgg_get_plugin_setting('speech_bubble_loggedin', 'theme_ffd');
