@@ -76,8 +76,9 @@ To view the response, visit:
 	'questions:menu:user_hover:remove_expert:confirm' => 'Weet je zeker dat je deze gebruiker wilt verwijderen als IA-medewerker van %s?',
 	'questions:experts:title' => 'IA-medewerkers',
 	'questions:experts:none' => 'Er zijn nog geen IA-medewerkers toegekend aan %s.',
-	'theme_ffd:settings:logo:loggedout' => 'Link naar logo (voor uitgelogde gebruikers)',
-	'theme_ffd:settings:logo:loggedin' => 'Link naar logo (voor ingelogde gebruikers)',
+	'theme_ffd:settings:logo' => 'Link naar logo',
+	'theme_ffd:settings:speech_bubble:loggedout' => 'Link naar ballon voor uitgelogde gebruikers',
+	'theme_ffd:settings:speech_bubble:loggedin' => 'Link naar ballon voor ingelogde gebruikers',
 	'theme_ffd:settings:welcome_text' => 'Welkomstekst'
 );
 
