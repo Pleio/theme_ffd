@@ -41,8 +41,8 @@ $english = array(
 	'theme_ffd:questions:menu:subscribe' => 'vraag volgen',
 	'theme_ffd:questions:menu:unsubscribe' => 'vraag niet volgen',
 
-	'item:object:cafe' => 'Café message',
-	'theme_ffd:cafe' => 'Café',
+	'item:object:cafe' => 'Pinboard message',
+	'theme_ffd:cafe' => 'Pinboard',
 	'theme_ffd:cafe:title' => 'Message title',
 	'theme_ffd:cafe:description' => 'Message',
 	'theme_ffd:cafe:searchmembers' => 'Search forum members',
@@ -68,7 +68,7 @@ $english = array(
 
 To view the response, visit:
 %s',
-	'theme_ffd:cafe:welcome' => 'Welkom in het FD-café. Een informele plek om uw nieuws of ervaringen te delen, vakgenoten te vinden voor bv specifieke opdrachten, vacatures en gewaardeerde gebruikers, etc. Een prikbord voor niet-fiscale zaken dus.',
+	'theme_ffd:cafe:welcome' => 'Welkom op het prikbord. Een informele plek om uw nieuws of ervaringen te delen, vakgenoten te vinden voor bv specifieke opdrachten, vacatures en gewaardeerde gebruikers, etc. Een prikbord voor niet-fiscale zaken dus.',
 	'questions:menu:filter:experts' => 'IA-medewerkers',
 	'questions:menu:user_hover:make_expert:confirm' => 'Weet je zeker dat je deze gebruiker een IA-medewerker wilt maken van %s?',
 	'questions:menu:user_hover:make_expert' => 'Maak IA-medewerker',

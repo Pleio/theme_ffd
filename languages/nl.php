@@ -41,8 +41,8 @@ $dutch = array(
   'theme_ffd:questions:menu:subscribe' => 'vraag volgen',
   'theme_ffd:questions:menu:unsubscribe' => 'vraag niet volgen',
 
-  'item:object:cafe' => 'Cafébericht',
-  'theme_ffd:cafe' => 'Café',
+  'item:object:cafe' => 'Prikbordbericht',
+  'theme_ffd:cafe' => 'Prikbord',
   'theme_ffd:cafe:title' => 'Titel van het bericht',
   'theme_ffd:cafe:description' => 'Bericht',
   'theme_ffd:cafe:purpose:search' => 'Ik zoek',
@@ -69,7 +69,7 @@ $dutch = array(
 Om de reactie te bekijken ga naar:
 %s',  
 
-  'theme_ffd:cafe:welcome' => 'Welkom in het FD-café. Een informele plek om uw nieuws of ervaringen te delen, vakgenoten te vinden voor bv specifieke opdrachten, vacatures en gewaardeerde gebruikers, etc. Een prikbord voor niet-fiscale zaken dus.',
+  'theme_ffd:cafe:welcome' => 'Welkom op het prikbord. Een informele plek om uw nieuws of ervaringen te delen, vakgenoten te vinden voor bv specifieke opdrachten, vacatures en gewaardeerde gebruikers, etc. Een prikbord voor niet-fiscale zaken dus.',
   'questions:edit:question:title' => 'Titel van de vraag',
   'questions:edit:question:description' => 'Stel uw vraag',
   'questions:menu:filter:experts' => 'IA-medewerkers',
