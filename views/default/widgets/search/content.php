@@ -47,9 +47,10 @@ if(!empty($type)){
 $form_body .= elgg_view("input/submit", array("value" => elgg_echo("search"), "class" => "hidden"));
 
 $form_options = array(
-	"body" => $form_body, 
+	"method" => "GET",
+	"body" => $form_body,
 	"action" => "/search",
-	"disable_security" => true, 
+	"disable_security" => true,
 	"class" => "search-advanced-widget-search-form"
 );
 
