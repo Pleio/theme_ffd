@@ -9,6 +9,12 @@
  * @package Elgg.Core
  * @subpackage UI
  */
+
+$logo = elgg_get_plugin_setting('logo', 'theme_ffd');
+if (!$logo) {
+	$logo = THEME_GRAPHICS . "logo.png";
+}
+
 ?>
 
 /* ***************************************
@@ -23,7 +29,7 @@
 	width: 990px;
 	margin: 0 auto;
 	height: 100px;
-	background: transparent url(<?php echo THEME_GRAPHICS; ?>logo.png) no-repeat top center;
+	background: transparent url(<?php echo $logo; ?>) no-repeat top center;
 }
 .elgg-page-default .elgg-page-navbar {
 	background: #<?php echo COLOR_BLUE_MEDIUM; ?>;

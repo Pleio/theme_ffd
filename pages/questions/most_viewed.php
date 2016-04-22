@@ -13,13 +13,15 @@ $title = elgg_echo('theme_ffd:questions:most_viewed');
 elgg_push_breadcrumb(elgg_echo('questions'), "questions/all");
 elgg_push_breadcrumb($title);
 
-$content = elgg_list_entities_from_annotation_calculation(array(
-	'type' => 'object',
-	'subtype' => 'question',
-	'annotation_names' => array("view_counter"),
-	'full_view' => false,
-	'list_type_toggle' => false,
-));
+$options = array(
+    'type' => 'object',
+    'subtype' => 'question',
+    'private_setting_names' => array('view_counter'),
+    'order_by' => 'ps.value DESC',
+    'full_view' => false
+);
+
+$content = elgg_list_entities($options, 'elgg_get_entities_from_private_settings');
 
 if (!$content) {
 	$content = elgg_echo('questions:none');

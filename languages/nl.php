@@ -2,7 +2,7 @@
 
 $dutch = array(
   'theme_ffd:navigation:home' => "Home",
-  'theme_ffd:header:search' => "Zoeken in Forum Fiscaal Dienstverleners",
+  'theme_ffd:header:search' => "Zoeken in",
   'theme_ffd:index:title' => "Welkom op het Forum Fiscaal Dienstverleners",
   'theme_ffd:index:description' => "In het Forum Fiscaal Dienstverleners werken fiscaal dienstverleners en de Belastingdienst samen aan actueler en informeler contact. In deze online community kunnen we elkaar ontmoeten en met elkaar kennis delen. Professionals uit hetzelfde vakgebied onder elkaar.
 <br /><br />Om deel te kunnen nemen is een beconnummer nodig. Medewerkers van hetzelfde kantoor kunnen met dit nummer een eigen account aanmaken.
@@ -41,8 +41,8 @@ $dutch = array(
   'theme_ffd:questions:menu:subscribe' => 'vraag volgen',
   'theme_ffd:questions:menu:unsubscribe' => 'vraag niet volgen',
 
-  'item:object:cafe' => 'Cafébericht',
-  'theme_ffd:cafe' => 'Café',
+  'item:object:cafe' => 'Prikbordbericht',
+  'theme_ffd:cafe' => 'Prikbord',
   'theme_ffd:cafe:title' => 'Titel van het bericht',
   'theme_ffd:cafe:description' => 'Bericht',
   'theme_ffd:cafe:purpose:search' => 'Ik zoek',
@@ -69,7 +69,7 @@ $dutch = array(
 Om de reactie te bekijken ga naar:
 %s',  
 
-  'theme_ffd:cafe:welcome' => 'Welkom in het FD-café. Een informele plek om uw nieuws of ervaringen te delen, vakgenoten te vinden voor bv specifieke opdrachten, vacatures en gewaardeerde gebruikers, etc. Een prikbord voor niet-fiscale zaken dus.',
+  'theme_ffd:cafe:welcome' => 'Welkom op het prikbord. Een informele plek om uw nieuws of ervaringen te delen, vakgenoten te vinden voor bv specifieke opdrachten, vacatures en gewaardeerde gebruikers, etc. Een prikbord voor niet-fiscale zaken dus.',
   'questions:edit:question:title' => 'Titel van de vraag',
   'questions:edit:question:description' => 'Stel uw vraag',
   'questions:menu:filter:experts' => 'IA-medewerkers',
@@ -78,7 +78,11 @@ Om de reactie te bekijken ga naar:
   'questions:menu:user_hover:remove_expert' => 'Verwijder IA-medewerker',
   'questions:menu:user_hover:remove_expert:confirm' => 'Weet je zeker dat je deze gebruiker wilt verwijderen als IA-medewerker van %s?',
   'questions:experts:title' => 'IA-medewerkers',
-  'questions:experts:none' => 'Er zijn nog geen IA-medewerkers toegekend aan %s.'
+  'questions:experts:none' => 'Er zijn nog geen IA-medewerkers toegekend aan %s.',
+  'theme_ffd:settings:logo' => 'Link naar logo',
+  'theme_ffd:settings:speech_bubble:loggedout' => 'Link naar ballon voor uitgelogde gebruikers',
+  'theme_ffd:settings:speech_bubble:loggedin' => 'Link naar ballon voor ingelogde gebruikers',
+  'theme_ffd:settings:welcome_text' => 'Welkomstekst'
 );
 
 add_translation("nl", $dutch);
