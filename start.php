@@ -30,7 +30,7 @@ function theme_ffd_init() {
 	elgg_register_plugin_hook_handler("register", "menu:entity", "theme_ffd_entity_hook");
 
 	// pagehandlers
-	elgg_register_page_handler("profilet", "theme_ffd_profile_page_handler");
+	elgg_register_page_handler("profile", "theme_ffd_profile_page_handler");
 	elgg_register_page_handler("cafe", "theme_ffd_cafe_page_handler");
 	elgg_register_page_handler("login", "theme_ffd_index");
 
@@ -63,9 +63,6 @@ function theme_ffd_init() {
 	add_translation(get_current_language(), array(
 		"questions:add" => elgg_echo("theme_ffd:questions:add")
 	));
-
-	$actions_base_profile = dirname(__FILE__) . "/actions/profile";
-	elgg_register_action("profile/setprofileparameter", "$actions_base_profile/setprofileparameter.php", "public");
 }
 
 /**
@@ -96,13 +93,9 @@ function theme_ffd_profile_page_handler($page) {
 
 	if ($action == "edit") {
 		// use the core profile edit page
-		require dirname(__FILE__) . "/pages/profile/edit.php";
+		$base_dir = elgg_get_root_path();
+		require "{$base_dir}pages/profile/edit.php";
 		return true;
-	}
-	else
-	{
-		require dirname(__FILE__) . "/pages/profile/index.php";
-		return true;	
 	}
 
 	// main profile page
