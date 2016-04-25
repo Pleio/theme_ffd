@@ -17,7 +17,7 @@ $options = array(
     'type' => 'object',
     'subtype' => 'question',
     'private_setting_names' => array('view_counter'),
-    'order_by' => 'ps.value DESC',
+    'order_by' => 'cast(ps.value as unsigned) DESC',
     'full_view' => false
 );
 
