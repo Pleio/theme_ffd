@@ -1,6 +1,6 @@
 <?php
 
-function theme_ffd_fivestar_get_top_users($n_days = 14, $eps = 0.5) {
+function theme_ffd_fivestar_get_top_users($n_days = 21, $eps = 0.5) {
     $options = array(
         'annotation_name' => 'fivestar',
         'where' => 'n_table.time_created > ' . (time() - 3600*24*$n_days),
